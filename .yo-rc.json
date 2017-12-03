@@ -1,0 +1,51 @@
+{
+  "generator-swill-boilerplate": {
+    "version": "1.0.0beta",
+    "projectName": "SVG to Inline",
+    "projectDescription": "Lib to dynamic replace SVG in <image> and <object> tags, by SVG inline.",
+    "projectHomepage": "http://tiagoporto.github.io/svg-to-inline",
+    "keywords": [
+      "svg",
+      "inline",
+      "include",
+      "html",
+      "dynamic",
+      "replace"
+    ],
+    "color": "#000000",
+    "language": "en",
+    "authorName": "Tiago Porto",
+    "authorEmail": "tiago@tiagoporto.com",
+    "authorHomepage": "http://tiagoporto.com/",
+    "githubUser": "tiagoporto",
+    "settingFolder": true,
+    "srcFolder": "src",
+    "destFolder": "dist",
+    "buildFolder": "build",
+    "fontsFolder": "fonts",
+    "imgFolder": "images",
+    "stylesFolder": "styles",
+    "scriptsFolder": "js",
+    "inlineSVG": false,
+    "workflow": "static",
+    "preprocessor": "stylus",
+    "options": [
+      "validateHTML",
+      "lintJS"
+    ],
+    "features": [],
+    "files": [
+      "readme",
+      "contributing",
+      "npmignore",
+      "manifestJson",
+      "browserconfig"
+    ],
+    "gitHooks": [],
+    "integrations": [
+      "travis",
+      "coveralls"
+    ],
+    "license": "MIT"
+  }
+}
