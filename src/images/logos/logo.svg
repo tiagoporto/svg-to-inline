@@ -1,3 +1,6 @@
+<!--
+    comment 1
+-->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250" class="swill-boilerplate-logo">
     <style>
     .swill-boilerplate-logo__circle{
@@ -40,6 +43,10 @@
         fill:#3A9F8D;
     }
     </style>
+
+    <!--
+        comment 2
+    -->
 
     <circle class="swill-boilerplate-logo__circle" cx="125" cy="125" r="124" />
 
