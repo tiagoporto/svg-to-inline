@@ -319,14 +319,14 @@ gulp.task('watch', callback => {
   )
 
   // Scripts
-  gulp.watch(path.join(basePaths.src, '**/*.{js,jsx}'), ['scripts'])
+  // gulp.watch(path.join(basePaths.src, '{*,**/*}.{js,jsx}'), ['scripts'])
 
-  gulp.watch(path.join(basePaths.dest, '**/*.{js}'), browserSync.reload)
+  gulp.watch(path.join(basePaths.dest, '*.js'), browserSync.reload)
 
   // Styles
   gulp.watch(
     [
-      path.join(basePaths.src, '**/*.{styl,scss,sass}'),
+      path.join(basePaths.src, '{*,**/*}.{styl,scss,sass}'),
       path.join(`!${paths.styles.src}`, 'helpers/{mixins,functions}/*.{styl,scss,sass}')
     ],
     ['styles', browserSync.reload]
@@ -335,12 +335,12 @@ gulp.task('watch', callback => {
   gulp.watch(path.join(paths.styles.src, 'helpers/{mixins,functions}/*.{styl,scss,sass}'), ['styles-helpers'])
 
   // HTML
-  gulp.watch(path.join(basePaths.src, '**/*.{html,hbs}'), ['html', browserSync.reload])
+  gulp.watch(path.join(basePaths.src, '{*,**/*}.{html,hbs}'), ['html', browserSync.reload])
 
   gulp.watch(
     [
-      path.join(basePaths.src, '**/*'),
-      path.join(`!${basePaths.src}`, '**/*.{html,css,js,bmp,gif,jpg,jpeg,png,svg}')
+      path.join(basePaths.src, '{*,**/*}'),
+      path.join(`!${basePaths.src}`, '{*,**/*}.{html,css,js,bmp,gif,jpg,jpeg,png,svg}')
     ],
     browserSync.reload
   )
