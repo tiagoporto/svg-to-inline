@@ -1,10 +1,10 @@
 # SVG to Inline
 
 [![Build Status](https://travis-ci.org/tiagoporto/svg-to-inline.svg)](https://travis-ci.org/tiagoporto/svg-to-inline)
-<!-- [![Coverage Status](https://img.shields.io/coveralls/tiagoporto/svg-to-inline.svg)](https://coveralls.io/github/tiagoporto/svg-to-inline) -->
+[![Coverage Status](https://img.shields.io/coveralls/tiagoporto/svg-to-inline.svg)](https://coveralls.io/github/tiagoporto/svg-to-inline)
 [![Dependencies Status](https://david-dm.org/tiagoporto/svg-to-inline.svg)](https://david-dm.org/tiagoporto/svg-to-inline)
 [![devDependencies Status](https://david-dm.org/tiagoporto/svg-to-inline/dev-status.svg)](https://david-dm.org/tiagoporto/svg-to-inline#info=devDependencies)
-<!-- [![NPM Downloads](https://img.shields.io/npm/dt/svg-to-inline.svg)](https://www.npmjs.com/package/svg-to-inline) -->
+[![NPM Downloads](https://img.shields.io/npm/dt/svg-to-inline.svg)](https://www.npmjs.com/package/svg-to-inline)
 [![Github Release](https://img.shields.io/github/release/tiagoporto/svg-to-inline.svg)](https://github.com/tiagoporto/svg-to-inline/releases)
 [![Github Issues](https://img.shields.io/github/issues/tiagoporto/svg-to-inline.svg)](https://github.com/tiagoporto/svg-to-inline/issues)
 [![Github License](https://img.shields.io/github/license/tiagoporto/svg-to-inline.svg)](https://raw.githubusercontent.com/tiagoporto/svg-to-inline/master/LICENSE)
