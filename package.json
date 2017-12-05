@@ -32,11 +32,10 @@
     "cover": "nyc --reporter=lcov npm test",
     "test": "mocha './{,!(node_modules)/**/}*.test.js' test/**/*.js test/*.js",
     "test:watch": "npm test -- --watch",
-    "coveralls": "nyc --reporter=text-lcov npm test | coveralls"
+    "codecov": "nyc report --reporter=lcov > coverage.lcov && codecov"
   },
   "main": "",
   "files": [],
-  "dependencies": {},
   "devDependencies": {
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
@@ -80,7 +79,7 @@
     "run-sequence": "2.2.0",
     "vinyl-buffer": "1.0.0",
     "webpack": "3.8.1",
-    "coveralls": "3.0.0",
+    "codecov": "^3.0.0",
     "gulp-stylus": "2.6.0"
   },
   "license": "MIT"
