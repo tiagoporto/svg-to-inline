@@ -30,7 +30,7 @@
     "lint": "eslint src/js/.",
     "lint:fix": "npm run lint -- --fix",
     "cover": "nyc --reporter=lcov npm test",
-    "test": "mocha './{,!(node_modules)/**/}*.test.js' test/**/*.js test/*.js",
+    "test": "mocha --require babel-register './{,!(node_modules)/**/}*.test.js' test/**/*.js test/*.js",
     "test:watch": "npm test -- --watch",
     "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
