@@ -4,12 +4,18 @@
  * @return {undefined} This function dont have return
  */
 const svgToInline = options => {
-  const trigger = {
-    class: options.elementsClass.replace('.', ''),
-    useClass: (options && options.useTriggerClass) || false
-  }
+  let trigger = ''
+  let elements = ''
 
-  const elements = document.getElementsByClassName(trigger.class)
+  if (options) {
+    if (typeof options === 'string') {
+      trigger.element = options
+    } else if (typeof options === 'object') {
+      trigger = options
+    }
+
+    elements = document.getElementsByClassName(trigger.element)
+  }
 
   if (elements.length) {
     Array.from(elements).forEach(item => {
@@ -76,7 +82,7 @@ const svgToInline = options => {
     return
   }
 
-  return console.error('No elements found, Check the class name!')
+  return console.error('SvgToInline needs parameters, try svgToInline(\'.class|#id\') or svgToInline({element:\'.class|#id\'})')
 }
 
 export default svgToInline
