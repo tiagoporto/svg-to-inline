@@ -98,17 +98,21 @@ gulp.task('scripts:lint', () => {
 
 // Compile, Minify and Lint Script
 gulp.task('scripts', ['scripts:lint'], () => {
-  return gulp
-    .src(paths.optionalScripts)
-    .pipe(plumber())
-    .pipe(newer(paths.dest))
-    .pipe(plumber())
-    .pipe(babel())
-    .pipe(gulp.dest(paths.dest))
-    .pipe(rename({suffix: '.min'}))
-    .pipe(uglify({output: {comments: 'some'}}))
-    .pipe(gulp.dest(paths.dest))
-    .pipe(notify({message: 'Scripts task complete', onLast: true}))
+  if (paths.optionalScripts) {
+    return gulp
+      .src(paths.optionalScripts)
+      .pipe(plumber())
+      .pipe(newer(paths.dest))
+      .pipe(plumber())
+      .pipe(babel())
+      .pipe(gulp.dest(paths.dest))
+      .pipe(rename({suffix: '.min'}))
+      .pipe(uglify({output: {comments: 'some'}}))
+      .pipe(gulp.dest(paths.dest))
+      .pipe(notify({message: 'Scripts task complete', onLast: true}))
+  }
+
+  return
 })
 
 // ========= Styles ========= //
@@ -210,7 +214,7 @@ gulp.task('images', () => {
 // Generate Bitmap Sprite
 gulp.task('bitmap-sprite', () => {
   const sprite = gulp
-    .src(path.join(paths.images.src, '**/*.png'))
+    .src(path.join(paths.images.src, 'sprite/**/*.png'))
     .pipe(plumber())
     .pipe(
       spritesmith({
