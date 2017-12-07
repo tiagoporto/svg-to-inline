@@ -16,7 +16,7 @@
     "language": "en",
     "authorName": "Tiago Porto",
     "authorEmail": "tiago@tiagoporto.com",
-    "authorHomepage": "http://tiagoporto.com/",
+    "authorHomepage": "http://tiagoporto.com",
     "githubUser": "tiagoporto",
     "settingFolder": true,
     "srcFolder": "src",
@@ -26,13 +26,13 @@
     "imgFolder": "images",
     "stylesFolder": "styles",
     "scriptsFolder": "js",
-    "inlineSVG": false,
     "workflow": "static",
     "preprocessor": "stylus",
     "options": [
       "validateHTML",
       "lintJS"
     ],
+    "inlineSVG": false,
     "features": [],
     "files": [
       "readme",

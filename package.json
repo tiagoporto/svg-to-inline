@@ -8,12 +8,12 @@
     "inline",
     "include",
     "html",
-    "dynamic",
+    "dyanmic",
     "replace"
   ],
   "author": {
     "name": "Tiago Porto",
-    "url": "http://tiagoporto.com/"
+    "url": "http://tiagoporto.com"
   },
   "repository": {
     "type": "git",
@@ -23,19 +23,20 @@
     "start": "gulp compile:watch & npm run scripts -- --watch",
     "serve": "gulp watch",
     "compile": "gulp compile",
-    "build": "gulp build",
-    "serve:build": "gulp build:serve",
+    "build": "npm run scripts --prod &&  gulp build --prod",
+    "serve:build": "npm run scripts --prod &&  gulp build:serve --prod",
     "scripts": "webpack --progress --colors",
-    "ghpages": "gulp gh-pages",
+    "ghpages": "npm run scripts --prod && gulp gh-pages",
     "lint": "eslint src/js/.",
     "lint:fix": "npm run lint -- --fix",
     "cover": "nyc --reporter=lcov npm test",
-    "test": "mocha --require babel-register './{,!(node_modules)/**/}*.test.js' test/**/*.js test/*.js",
+    "test": "mocha './{,!(node_modules)/**/}*.test.js' test/{**/}*.js",
     "test:watch": "npm test -- --watch",
     "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "main": "",
   "files": [],
+  "dependencies": {},
   "devDependencies": {
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
