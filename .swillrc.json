@@ -1,7 +1,7 @@
 {
   "basePaths": {
     "src": "src",
-    "dest": "dist",
+    "dist": "dist",
     "build": "build",
     "images": "images",
     "fonts": "fonts",
