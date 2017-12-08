@@ -20,6 +20,7 @@
     "githubUser": "tiagoporto",
     "settingFolder": true,
     "srcFolder": "src",
+    "distFolder": "dist",
     "buildFolder": "build",
     "fontsFolder": "fonts",
     "imgFolder": "images",

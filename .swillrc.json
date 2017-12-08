@@ -6,7 +6,8 @@
     "images": "images",
     "fonts": "fonts",
     "scripts": "js",
-    "styles": "styles"
+    "styles": "styles",
+    "optionalScripts": ["src/js/svg-to-inline.js"]
   },
 
   "validateW3C": true,
