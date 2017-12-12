@@ -5,8 +5,14 @@ domready(() => {
   // Executes after dow ready
 })
 
-svgToInline({
-  elementsClass: 'svg',
-  useTriggerClass: false,
-  preserveComments: false
-})
+svgToInline()
+
+// svgToInline('.svg')
+
+// svgToInline('#svg')
+
+// svgToInline({
+//   elementsClass: 'svg',
+//   useTriggerClass: false,
+//   preserveComments: false
+// })
