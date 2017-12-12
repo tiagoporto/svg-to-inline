@@ -20,6 +20,7 @@ const ghPages = require('gulp-gh-pages')
 const gulp = require('gulp')
 const gulpIf = require('gulp-if')
 const htmlmin = require('gulp-htmlmin')
+const gutil = require('gulp-util')
 const imagemin = require('gulp-imagemin')
 const merge = require('merge-stream')
 const mergeMediaQueries = require('gulp-merge-media-queries')
@@ -36,6 +37,8 @@ const svgSprite = require('gulp-svg-sprite')
 const uglify = require('gulp-uglify')
 const useref = require('gulp-useref')
 const w3cjs = require('gulp-w3cjs')
+const webpack = require('webpack')
+const webpackConfig = require('./webpack.config.js')
 
 console.log('\x1b[32m', '\x1b[7m', 'Init Swill Boilerplate v1.0.0beta', '\x1b[0m')
 
@@ -97,22 +100,32 @@ gulp.task('scripts:lint', () => {
 })
 
 // Compile, Minify and Lint Script
-gulp.task('scripts', ['scripts:lint'], () => {
-  if (paths.optionalScripts) {
-    return gulp
-      .src(paths.optionalScripts, {base: paths.src})
-      .pipe(plumber())
-      .pipe(newer(paths[destFolder]))
-      .pipe(plumber())
-      .pipe(babel())
-      .pipe(gulp.dest(paths[destFolder]))
-      .pipe(rename({suffix: '.min'}))
-      .pipe(uglify({output: {comments: 'some'}}))
-      .pipe(gulp.dest(paths[destFolder]))
-      .pipe(notify({message: 'Scripts task complete', onLast: true}))
-  }
+gulp.task('scripts', ['scripts:lint'], callback => {
+  webpack(webpackConfig, (err, stats) => {
+    if (err) {
+      throw new gutil.PluginError('webpack:build', err)
+    } else {
+      gutil.log('[webpack:build]', stats.toString({
+        colors: true
+      }))
+      callback()
+    }
+  })
+  // if (paths.optionalScripts) {
+  //   return gulp
+  //     .src(paths.optionalScripts, {base: paths.src})
+  //     .pipe(plumber())
+  //     .pipe(newer(paths[destFolder]))
+  //     .pipe(plumber())
+  //     .pipe(babel())
+  //     .pipe(gulp.dest(paths[destFolder]))
+  //     .pipe(rename({suffix: '.min'}))
+  //     .pipe(uglify({output: {comments: 'some'}}))
+  //     .pipe(gulp.dest(paths[destFolder]))
+  //     .pipe(notify({message: 'Scripts task complete', onLast: true}))
+  // }
 
-  return
+  // return merge(bundle, others)
 })
 
 // ========= Styles ========= //

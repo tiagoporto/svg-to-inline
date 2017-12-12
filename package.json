@@ -20,12 +20,12 @@
     "url": "https://github.com/tiagoporto/svg-to-inline.git"
   },
   "scripts": {
-    "start": "gulp compile:watch & npm run scripts -- --watch",
+    "start": "gulp compile:watch",
     "serve": "gulp watch",
     "compile": "gulp compile",
     "build": "npm run scripts --prod &&  gulp build --prod",
     "serve:build": "npm run scripts --prod &&  gulp build:serve --prod",
-    "scripts": "webpack --progress --colors",
+    "scripts": "webpack --progress --colors --watch",
     "ghpages": "npm run scripts --prod && gulp gh-pages",
     "lint": "eslint src/js/.",
     "lint:fix": "npm run lint -- --fix",
@@ -36,7 +36,9 @@
   },
   "main": "",
   "files": [],
-  "dependencies": {},
+  "dependencies": {
+    "gulp-util": "^3.0.8"
+  },
   "devDependencies": {
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
