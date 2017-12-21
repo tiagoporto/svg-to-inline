@@ -95,9 +95,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   // Executes after dow ready
 });
 
-(0, _svgToInline2.default)();
+// svgToInline()
 
-// svgToInline('.svg')
+(0, _svgToInline2.default)('.svg');
 
 // svgToInline('#svg')
 
@@ -153,6 +153,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 /**
  * replace tags to inline SVG
  * @param  {object} options [description]
@@ -163,23 +166,30 @@ var svgToInline = function svgToInline(options) {
   var elements = [];
 
   if (options) {
-    //   if (typeof options === 'string') {
-    //     trigger.element = options
-    //   } else if (typeof options === 'object') {
-    //     trigger = options
-    // }
+    if (typeof options === 'string') {
+      elements = document.getElementsByClassName(options.replace('.', ''));
+      console.log("elements", elements);
 
-    //   elements = document.getElementsByClassName(trigger.element)
+      for (var i = elements.length - 1; i >= 0; i -= 1) {
+        var file = elements[i].getAttribute('src') || elements[i].getAttribute('data');
+
+        if (file.search('.svg') < 0) {
+          elements.splice(i, 1);
+        }
+      }
+    } else if ((typeof options === 'undefined' ? 'undefined' : _typeof(options)) === 'object') {
+      // trigger = options
+    }
   } else {
     // If there isn't option will get all images and objects on the page with SRC is .svg extension
     elements = Array.prototype.concat.apply(elements, document.getElementsByTagName('img'), elements);
     elements = Array.prototype.concat.apply(elements, document.getElementsByTagName('object'), elements);
 
-    for (var i = elements.length - 1; i >= 0; i -= 1) {
-      var file = elements[i].getAttribute('src') || elements[i].getAttribute('data');
+    for (var _i = elements.length - 1; _i >= 0; _i -= 1) {
+      var _file = elements[_i].getAttribute('src') || elements[_i].getAttribute('data');
 
-      if (file.search('.svg') < 0) {
-        elements.splice(i, 1);
+      if (_file.search('.svg') < 0) {
+        elements.splice(_i, 1);
       }
     }
   }
@@ -198,19 +208,21 @@ var svgToInline = function svgToInline(options) {
         svgTagWithoutClass: ''
 
         // Get class names
-      };var inputClass = svg.current.getAttribute('class').split(' ');
+      };var inputClass = svg.current.getAttribute('class') && svg.current.getAttribute('class').split(' ');
 
-      inputClass.forEach(function (item, index) {
-        var space = '';
+      if (inputClass) {
+        inputClass.forEach(function (item, index) {
+          var space = '';
 
-        // check if isn't the last class
-        if (inputClass[index] === trigger.class && !trigger.useClass) {
-          return;
-        }
+          // check if isn't the last class
+          if (inputClass[index] === trigger.class && !trigger.useClass) {
+            return;
+          }
 
-        index !== inputClass.length - 1 && (space = ' ');
-        svg.newClass += inputClass[index] + space;
-      });
+          index !== inputClass.length - 1 && (space = ' ');
+          svg.newClass += inputClass[index] + space;
+        });
+      }
 
       var request = new XMLHttpRequest();
       request.open('GET', svg.path, true);
@@ -222,6 +234,7 @@ var svgToInline = function svgToInline(options) {
 
             // Remove comments
             requestDetails.element = response.replace(/<[?!][\s\w"-/:=?]+>/g, '');
+            console.log("requestDetails.element", requestDetails.element);
 
             requestDetails.svgTag = requestDetails.element.match(/<svg[\w\s\t\n:="\\'/.#-]+>/g);
             requestDetails.svgTagWithoutClass = requestDetails.svgTag[0].replace(/class="[\w\s-_]+"/, '');
@@ -247,8 +260,6 @@ var svgToInline = function svgToInline(options) {
 
     return;
   }
-
-  return console.error('SvgToInline needs parameters, try svgToInline(\'.class|#id\') or svgToInline({element:\'.class|#id\'})');
 };
 
 exports.default = svgToInline;

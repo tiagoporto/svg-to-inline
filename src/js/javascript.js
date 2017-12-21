@@ -5,9 +5,9 @@ domready(() => {
   // Executes after dow ready
 })
 
-svgToInline()
+// svgToInline()
 
-// svgToInline('.svg')
+svgToInline('.svg')
 
 // svgToInline('#svg')
 

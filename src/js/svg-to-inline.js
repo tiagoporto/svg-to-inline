@@ -8,13 +8,20 @@ const svgToInline = options => {
   let elements = []
 
   if (options) {
-  //   if (typeof options === 'string') {
-  //     trigger.element = options
-  //   } else if (typeof options === 'object') {
-  //     trigger = options
-    // }
+    if (typeof options === 'string') {
+      elements = document.getElementsByClassName(options.replace('.', ''))
+      console.log("elements", elements);
 
-  //   elements = document.getElementsByClassName(trigger.element)
+      for (let i = elements.length - 1; i >= 0; i -= 1) {
+        const file = (elements[i].getAttribute('src') || elements[i].getAttribute('data'))
+
+        if (file.search('.svg') < 0) {
+          elements.splice(i, 1)
+        }
+      }
+    } else if (typeof options === 'object') {
+      // trigger = options
+    }
   } else {
     // If there isn't option will get all images and objects on the page with SRC is .svg extension
     elements = Array.prototype.concat.apply(elements, document.getElementsByTagName('img'), elements)
@@ -44,19 +51,21 @@ const svgToInline = options => {
       }
 
       // Get class names
-      const inputClass = svg.current.getAttribute('class').split(' ')
+      const inputClass = svg.current.getAttribute('class') && svg.current.getAttribute('class').split(' ')
 
-      inputClass.forEach((item, index) => {
-        let space = ''
+      if (inputClass) {
+        inputClass.forEach((item, index) => {
+          let space = ''
 
-        // check if isn't the last class
-        if (inputClass[index] === trigger.class && !trigger.useClass) {
-          return
-        }
+          // check if isn't the last class
+          if (inputClass[index] === trigger.class && !trigger.useClass) {
+            return
+          }
 
-        (index !== inputClass.length - 1) && (space = ' ')
-        svg.newClass += inputClass[index] + space
-      })
+          (index !== inputClass.length - 1) && (space = ' ')
+          svg.newClass += inputClass[index] + space
+        })
+      }
 
       let request = new XMLHttpRequest()
       request.open('GET', svg.path, true)
@@ -68,6 +77,7 @@ const svgToInline = options => {
 
             // Remove comments
             requestDetails.element = response.replace(/<[?!][\s\w"-/:=?]+>/g, '')
+            console.log("requestDetails.element", requestDetails.element);
 
             requestDetails.svgTag = requestDetails.element.match(/<svg[\w\s\t\n:="\\'/.#-]+>/g)
             requestDetails.svgTagWithoutClass = requestDetails.svgTag[0].replace(/class="[\w\s-_]+"/, '')
@@ -93,8 +103,6 @@ const svgToInline = options => {
 
     return
   }
-
-  return console.error('SvgToInline needs parameters, try svgToInline(\'.class|#id\') or svgToInline({element:\'.class|#id\'})')
 }
 
 export default svgToInline
