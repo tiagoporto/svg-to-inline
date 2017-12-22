@@ -97,15 +97,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // svgToInline()
 
-(0, _svgToInline2.default)('.svg');
+// svgToInline('.svg')
 
 // svgToInline('#svg')
 
-// svgToInline({
-//   elementsClass: 'svg',
-//   useTriggerClass: false,
-//   preserveComments: false
-// })
+(0, _svgToInline2.default)({
+  elementsClass: 'svg',
+  useTriggerClass: false,
+  preserveComments: false
+});
 
 /***/ }),
 /* 2 */
@@ -167,8 +167,11 @@ var svgToInline = function svgToInline(options) {
 
   if (options) {
     if (typeof options === 'string') {
-      elements = document.getElementsByClassName(options.replace('.', ''));
-      console.log("elements", elements);
+      if (options.substring(0, 1) === '#') {
+        document.getElementById(options.replace('#', '')) && (elements[0] = document.getElementById(options.replace('#', '')));
+      } else {
+        elements = Array.prototype.concat.apply(elements, document.getElementsByClassName(options.replace('.', '')), elements) || [];
+      }
 
       for (var i = elements.length - 1; i >= 0; i -= 1) {
         var file = elements[i].getAttribute('src') || elements[i].getAttribute('data');
@@ -178,12 +181,14 @@ var svgToInline = function svgToInline(options) {
         }
       }
     } else if ((typeof options === 'undefined' ? 'undefined' : _typeof(options)) === 'object') {
-      // trigger = options
+      trigger = options;
+      elements = document.getElementsByClassName(options.elementsClass);
+      console.log("elements", elements);
     }
   } else {
     // If there isn't option will get all images and objects on the page with SRC is .svg extension
-    elements = Array.prototype.concat.apply(elements, document.getElementsByTagName('img'), elements);
-    elements = Array.prototype.concat.apply(elements, document.getElementsByTagName('object'), elements);
+    elements = Array.prototype.concat.apply(elements, document.getElementsByTagName('img'), elements) || [];
+    elements = Array.prototype.concat.apply(elements, document.getElementsByTagName('object'), elements) || [];
 
     for (var _i = elements.length - 1; _i >= 0; _i -= 1) {
       var _file = elements[_i].getAttribute('src') || elements[_i].getAttribute('data');
@@ -234,8 +239,6 @@ var svgToInline = function svgToInline(options) {
 
             // Remove comments
             requestDetails.element = response.replace(/<[?!][\s\w"-/:=?]+>/g, '');
-            console.log("requestDetails.element", requestDetails.element);
-
             requestDetails.svgTag = requestDetails.element.match(/<svg[\w\s\t\n:="\\'/.#-]+>/g);
             requestDetails.svgTagWithoutClass = requestDetails.svgTag[0].replace(/class="[\w\s-_]+"/, '');
             svg.oldClass = requestDetails.svgTag[0].match(/class="(.*?)"/);
@@ -257,8 +260,6 @@ var svgToInline = function svgToInline(options) {
       request.send();
       request = null;
     });
-
-    return;
   }
 };
 

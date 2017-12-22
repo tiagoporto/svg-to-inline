@@ -9,8 +9,11 @@ const svgToInline = options => {
 
   if (options) {
     if (typeof options === 'string') {
-      elements = document.getElementsByClassName(options.replace('.', ''))
-      console.log("elements", elements);
+      if (options.substring(0, 1) === '#') {
+        document.getElementById(options.replace('#', '')) && (elements[0] = document.getElementById(options.replace('#', '')))
+      } else {
+        elements = Array.prototype.concat.apply(elements, document.getElementsByClassName(options.replace('.', '')), elements) || []
+      }
 
       for (let i = elements.length - 1; i >= 0; i -= 1) {
         const file = (elements[i].getAttribute('src') || elements[i].getAttribute('data'))
@@ -20,12 +23,14 @@ const svgToInline = options => {
         }
       }
     } else if (typeof options === 'object') {
-      // trigger = options
+      trigger = options
+      elements = document.getElementsByClassName(options.elementsClass)
+      console.log("elements", elements);
     }
   } else {
     // If there isn't option will get all images and objects on the page with SRC is .svg extension
-    elements = Array.prototype.concat.apply(elements, document.getElementsByTagName('img'), elements)
-    elements = Array.prototype.concat.apply(elements, document.getElementsByTagName('object'), elements)
+    elements = Array.prototype.concat.apply(elements, document.getElementsByTagName('img'), elements) || []
+    elements = Array.prototype.concat.apply(elements, document.getElementsByTagName('object'), elements) || []
 
     for (let i = elements.length - 1; i >= 0; i -= 1) {
       const file = (elements[i].getAttribute('src') || elements[i].getAttribute('data'))
@@ -77,8 +82,6 @@ const svgToInline = options => {
 
             // Remove comments
             requestDetails.element = response.replace(/<[?!][\s\w"-/:=?]+>/g, '')
-            console.log("requestDetails.element", requestDetails.element);
-
             requestDetails.svgTag = requestDetails.element.match(/<svg[\w\s\t\n:="\\'/.#-]+>/g)
             requestDetails.svgTagWithoutClass = requestDetails.svgTag[0].replace(/class="[\w\s-_]+"/, '')
             svg.oldClass = requestDetails.svgTag[0].match(/class="(.*?)"/)
@@ -100,8 +103,6 @@ const svgToInline = options => {
       request.send()
       request = null
     })
-
-    return
   }
 }
 

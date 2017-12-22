@@ -7,12 +7,12 @@ domready(() => {
 
 // svgToInline()
 
-svgToInline('.svg')
+// svgToInline('.svg')
 
 // svgToInline('#svg')
 
-// svgToInline({
-//   elementsClass: 'svg',
-//   useTriggerClass: false,
-//   preserveComments: false
-// })
+svgToInline({
+  elementsClass: 'svg',
+  useTriggerClass: false,
+  preserveComments: false
+})
