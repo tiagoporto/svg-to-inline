@@ -18,3 +18,9 @@ insert_final_newline = false
 [*.md]
 insert_final_newline = false
 trim_trailing_whitespace = false
+
+[*.{html,js}]
+block_comment_start = /**
+block_comment = *
+block_comment_end = */
+

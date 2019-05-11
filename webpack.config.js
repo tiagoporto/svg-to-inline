@@ -1,39 +1,38 @@
-/*
-* Swill Boilerplate v1.0.0beta
-* https://github.com/tiagoporto/swill-boilerplate
-* Copyright (c) 2014-2017 Tiago Porto (http://tiagoporto.com)
-* Released under the MIT license
-*/
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const path = require('path')
-const paths = require('./.swillrc.json').basePaths
-const webpack = require('webpack')
+const path = require('path');
 
 module.exports = {
-  entry: path.join(__dirname, paths.src, 'index.js'),
+  devServer: {
+    compress: true,
+    inline: true,
+    open: true,
+    overlay: true,
+    contentBase: path.join(__dirname, 'demo'),
+  },
+  devtool: 'source-map',
+  entry: path.join(__dirname, 'demo/index.js'),
   output: {
-    path: path.resolve(__dirname, paths.dist),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, 'demo'),
+    filename: '[name].[hash].bundle.js',
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /(node_modules)/,
+        test: /\.js$/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            cacheDirectory: true
-          }
-        }
-      }
-    ]
+            cacheDirectory: true,
+          },
+        },
+      },
+    ],
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-      }
-    })
-  ]
-}
+    new HtmlWebpackPlugin({
+      template: 'demo/index.html',
+    }),
+  ],
+};

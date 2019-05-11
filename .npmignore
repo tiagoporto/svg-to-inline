@@ -4,9 +4,7 @@
 .eslintrc
 .gitattributes
 .travis.yml
-.yo-rc.json
 
-bower.json
 config.json
 gulpfile.babel.js
 karma.conf.js
