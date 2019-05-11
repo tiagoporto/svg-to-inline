@@ -1,4 +1,5 @@
 import { html, css, LitElement } from 'lit-element';
+import { throttle } from 'throttle-debounce';
 
 export default class SvgToInline extends LitElement {
   static get styles() {
@@ -18,6 +19,16 @@ export default class SvgToInline extends LitElement {
     };
   }
 
+  lazyLoad = () => {
+    if (this.offsetTop < window.innerHeight + window.pageYOffset + 300) {
+      this.init();
+
+      window.removeEventListener('scroll', this.callFunction);
+      window.removeEventListener('resize', this.callFunction);
+      window.removeEventListener('orientationchange', this.callFunction);
+    }
+  };
+
   contClass(svg) {
     let element = svg;
 
@@ -35,7 +46,10 @@ export default class SvgToInline extends LitElement {
   replace(element) {
     const parsedHtml = new DOMParser().parseFromString(element, 'text/html');
     const parsedElement = parsedHtml.body.firstChild;
-    this.shadowRoot.appendChild(parsedElement);
+
+    if (!this.shadowRoot.childNodes.length) {
+      this.shadowRoot.appendChild(parsedElement);
+    }
   }
 
   async request() {
@@ -44,12 +58,7 @@ export default class SvgToInline extends LitElement {
     return response.replace(/<[?!][\s\w"-/:=?]+>/g, '');
   }
 
-  constructor() {
-    super();
-  }
-
-  connectedCallback() {
-    console.log(this.lazy);
+  init() {
     this.request().then(svg => {
       let svgElement = svg;
       if (this.className) {
@@ -57,6 +66,23 @@ export default class SvgToInline extends LitElement {
       }
       this.replace(svgElement);
     });
+  }
+
+  constructor() {
+    super();
+
+    this.callFunction = throttle(400, this.lazyLoad);
+  }
+
+  connectedCallback() {
+    if (this.lazy) {
+      window.addEventListener('scroll', this.callFunction);
+      window.addEventListener('resize', this.callFunction);
+      window.addEventListener('orientationchange', this.callFunction);
+      this.lazyLoad();
+    } else {
+      this.init();
+    }
   }
 
   render() {
