@@ -38,8 +38,6 @@ npm i svg-to-inline
   path="images/logos/logo.svg"
   lazy="true"
   fitSVG="true"
-  path="/img/svg-file.svg"
-  fitSVG="true"
   className="my-class other-class"
   cssPath="/styles.css"
 ></svg-to-inline>
