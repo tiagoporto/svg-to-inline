@@ -16,7 +16,7 @@ render(
   html`
     <h1>tertertertertert ert ert twegwwetbgdb wergbfgwerg</h1>
 
-    <svg-to-inline path="images/logos/logo.svg" lazy=${true}> </svg-to-inline>
+    <svg-to-inline path="images/logos/logo.svg" lazy=${true} fitSVG=${true}> </svg-to-inline>
     <p>tertertertertert ert ert twegwwetbgdb wergbfgwerg</p>
     <p>tertertertertert ert ert twegwwetbgdb wergbfgwerg</p>
     <p>tertertertertert ert ert twegwwetbgdb wergbfgwerg</p>

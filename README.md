@@ -34,7 +34,15 @@ npm i svg-to-inline
   import 'svg-to-inline/svg-to-inline.js';
 </script>
 
-<svg-to-inline></svg-to-inline>
+<svg-to-inline
+  path="images/logos/logo.svg"
+  lazy="true"
+  fitSVG="true"
+  path="/img/svg-file.svg"
+  fitSVG="true"
+  className="my-class other-class"
+  cssPath="/styles.css"
+></svg-to-inline>
 ```
 
 ## Contributing
