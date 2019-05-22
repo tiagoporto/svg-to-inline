@@ -139,7 +139,12 @@ export default class SvgToInline extends LitElement {
           `}
             ${this.fitSVG &&
           html`
-            svg { width: 100%; height: 100%; }
+            svg {
+              max-width: 100%;
+              width: 100%;
+              max-height: 100%
+              height: 100%;
+            }
           `}
       </style>
 
