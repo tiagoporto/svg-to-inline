@@ -1,6 +1,6 @@
 {
   "name": "svg-to-inline",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "Web Component to request an SVG file external and use inline",
   "homepage": "https://tiagoporto.github.io/svg-to-inline",
   "keywords": [
@@ -67,8 +67,8 @@
     "html-webpack-plugin": "^3.2.0",
     "husky": "^1.0.0",
     "lint-staged": "^8.0.0",
-    "lit-element": "^2.0.1",
-    "lit-html": "^1.0.0",
+    "lit-element": "^2.1.0",
+    "lit-html": "^1.1.0",
     "rimraf": "^2.6.3",
     "rollup": "^1.6.0",
     "throttle-debounce": "^2.1.0",
@@ -83,5 +83,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "dependencies": {
+    "whatwg-fetch": "^3.0.0"
   }
 }

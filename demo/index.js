@@ -16,14 +16,14 @@ render(
   html`
     <h1>tertertertertert ert ert twegwwetbgdb wergbfgwerg</h1>
 
-    <svg-to-inline path="images/logos/logo.svg" lazy=${true} fitSVG=${true}> </svg-to-inline>
+    <svg-to-inline path="images/logos/logo.svg" lazy=${true} class-name="test"> </svg-to-inline>
     <p>tertertertertert ert ert twegwwetbgdb wergbfgwerg</p>
     <p>tertertertertert ert ert twegwwetbgdb wergbfgwerg</p>
     <p>tertertertertert ert ert twegwwetbgdb wergbfgwerg</p>
     <p>tertertertertert ert ert twegwwetbgdb wergbfgwerg</p>
     <svg-to-inline
       path="https://upload.wikimedia.org/wikipedia/de/e/ec/Metallica_Logo.svg"
-      className="test muito"
+      class-name="test muito"
       lazy=${true}
     >
     </svg-to-inline>

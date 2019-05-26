@@ -1,27 +1,21 @@
-import { html, css, LitElement } from 'lit-element';
+import 'whatwg-fetch';
+import { html, css, LitElement, svg } from 'lit-element';
 import { throttle } from 'throttle-debounce';
 
 export default class SvgToInline extends LitElement {
-  static get styles() {
-    return css`
-      :host {
-        display: inline-block;
-        line-height: 0;
-      }
-    `;
-  }
-
   static get properties() {
     return {
       path: { type: String },
-      cssPath: { type: String },
       placeholder: { type: Boolean },
       lazy: { type: Boolean },
-      fitSVG: { type: Boolean },
-      className: { type: String },
+      'class-name': { type: String },
       svgDOM: { type: String },
-      svgClassName: { type: String },
+      'loading-Label': { type: String },
     };
+  }
+
+  createRenderRoot() {
+    return this;
   }
 
   extractClassNames(svg) {
@@ -34,19 +28,20 @@ export default class SvgToInline extends LitElement {
     const svgClass =
       element.match(/<svg[\w\s\t\n:="\\'/.#-]+ class="(.*?)"/) &&
       element.match(/class="(.*?)"/)[1].split(' ');
-    const classToAdd = (this.className && this.className.split(' ')) || [];
-    const newClass = [...svgClass, ...classToAdd].filter(classname => classname).join(' ');
+    const classToAdd = (this['class-name'] && this['class-name'].split(' ')) || [];
+    const allClasses = [...svgClass, ...classToAdd].filter(classname => classname);
+    const newClasses = [...new Set(allClasses)].join(' ');
 
     return element.replace(
       /(<svg[\w\s\t\n:="\\'/.#-]+) class="[\w\s-_]+?"/,
-      `$1 class="${newClass}"`,
+      `$1 class="${newClasses}"`,
     );
   }
 
-  static clean(svg) {
-    // Remove comments
-    return svg.replace(/<!--[\s\w"-/:=?><]+-->/g, '');
-  }
+  // static clean(svg) {
+  //   // Remove comments
+  //   return svg.replace(/<!--[\s\w"-/:=?><]+-->/g, '');
+  // }
 
   static parse(element) {
     const parsedHtml = new DOMParser().parseFromString(element, 'text/html');
@@ -74,7 +69,8 @@ export default class SvgToInline extends LitElement {
 
   svg() {
     return SvgToInline.fetchFile(this.path).then(svg => {
-      let svgElement = SvgToInline.clean(svg);
+      // let svgElement = SvgToInline.clean(svg);
+      let svgElement = svg;
       svgElement = this.extractClassNames(svgElement);
       this.svgDOM = svgElement;
     });
@@ -127,33 +123,18 @@ export default class SvgToInline extends LitElement {
   constructor() {
     super();
 
+    this['loading-Label'] = 'Loading...';
     this.callFunction = throttle(400, this.lazyLoad);
   }
 
   render() {
     return html`
-      <style>
-        ${this.cssPath &&
-          html`
-            @import url('${this.cssPath}');
-          `}
-            ${this.fitSVG &&
-          html`
-            svg {
-              max-width: 100%;
-              width: 100%;
-              max-height: 100%
-              height: 100%;
-            }
-          `}
-      </style>
-
       ${this.svgDOM
         ? html`
             ${SvgToInline.parse(this.svgDOM)}
           `
         : html`
-            <span>Loading...</span>
+            <span>${this['loading-Label']}</span>
           `}
     `;
   }

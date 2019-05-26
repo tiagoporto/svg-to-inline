@@ -37,9 +37,8 @@ npm i svg-to-inline
 <svg-to-inline
   path="images/logos/logo.svg"
   lazy="true"
-  fitSVG="true"
-  className="my-class other-class"
-  cssPath="/styles.css"
+  class-Name="my-class other-class"
+  loading-Label="Loading"
 ></svg-to-inline>
 ```
 
