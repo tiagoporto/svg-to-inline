@@ -1,6 +1,6 @@
-import 'whatwg-fetch';
-import { html, css, LitElement, svg } from 'lit-element';
-import { throttle } from 'throttle-debounce';
+import 'whatwg-fetch'
+import { html, css, LitElement, svg } from 'lit-element'
+import { throttle } from 'throttle-debounce'
 
 export default class SvgToInline extends LitElement {
   static get properties() {
@@ -11,31 +11,34 @@ export default class SvgToInline extends LitElement {
       'class-name': { type: String },
       svgDOM: { type: String },
       'loading-Label': { type: String },
-    };
+    }
   }
 
   createRenderRoot() {
-    return this;
+    return this
   }
 
   extractClassNames(svg) {
-    let element = svg;
+    let element = svg
 
     if (!svg.match(/<svg[\w\s\t\n:="\\'/.#-]+ class="(.*?)"/)) {
-      element = svg.replace(/(<svg[\w\s\t\n:="\\'/.#-]+)/, '$1 class=" "');
+      element = svg.replace(/(<svg[\w\s\t\n:="\\'/.#-]+)/, '$1 class=" "')
     }
 
     const svgClass =
       element.match(/<svg[\w\s\t\n:="\\'/.#-]+ class="(.*?)"/) &&
-      element.match(/class="(.*?)"/)[1].split(' ');
-    const classToAdd = (this['class-name'] && this['class-name'].split(' ')) || [];
-    const allClasses = [...svgClass, ...classToAdd].filter(classname => classname);
-    const newClasses = [...new Set(allClasses)].join(' ');
+      element.match(/class="(.*?)"/)[1].split(' ')
+    const classToAdd =
+      (this['class-name'] && this['class-name'].split(' ')) || []
+    const allClasses = [...svgClass, ...classToAdd].filter(
+      (classname) => classname,
+    )
+    const newClasses = [...new Set(allClasses)].join(' ')
 
     return element.replace(
       /(<svg[\w\s\t\n:="\\'/.#-]+) class="[\w\s-_]+?"/,
       `$1 class="${newClasses}"`,
-    );
+    )
   }
 
   // static clean(svg) {
@@ -44,98 +47,94 @@ export default class SvgToInline extends LitElement {
   // }
 
   static parse(element) {
-    const parsedHtml = new DOMParser().parseFromString(element, 'text/html');
-    const parsedElement = parsedHtml.body.firstChild;
+    const parsedHtml = new DOMParser().parseFromString(element, 'text/html')
+    const parsedElement = parsedHtml.body.firstChild
 
-    return parsedElement;
+    return parsedElement
   }
 
   static async fetchFile(path) {
     try {
-      const response = await (await fetch(path)).text();
-      return response;
+      const response = await (await fetch(path)).text()
+      return response
     } catch (error) {
-      return new Error(error);
+      return new Error(error)
     }
   }
 
   lazyLoad = () => {
     if (this.offsetTop < window.innerHeight + window.pageYOffset + 300) {
-      this.removeListeners();
+      this.removeListeners()
 
-      return this.svg();
+      return this.svg()
     }
-  };
+  }
 
   svg() {
-    return SvgToInline.fetchFile(this.path).then(svg => {
+    return SvgToInline.fetchFile(this.path).then((svg) => {
       // let svgElement = SvgToInline.clean(svg);
-      let svgElement = svg;
-      svgElement = this.extractClassNames(svgElement);
-      this.svgDOM = svgElement;
-    });
+      let svgElement = svg
+      svgElement = this.extractClassNames(svgElement)
+      this.svgDOM = svgElement
+    })
   }
 
   updated(changedProperties) {
     if (changedProperties.has('path')) {
-      this.removeListeners();
-      this.init();
+      this.removeListeners()
+      this.init()
     } else if (changedProperties.has('className') && this.svgDOM) {
-      this.svgDOM = this.extractClassNames(this.svgDOM);
+      this.svgDOM = this.extractClassNames(this.svgDOM)
     }
 
-    return false;
+    return false
   }
 
   addListeners() {
-    window.addEventListener('scroll', this.callFunction);
-    window.addEventListener('resize', this.callFunction);
-    window.addEventListener('orientationchange', this.callFunction);
+    window.addEventListener('scroll', this.callFunction)
+    window.addEventListener('resize', this.callFunction)
+    window.addEventListener('orientationchange', this.callFunction)
   }
 
   removeListeners() {
-    window.removeEventListener('scroll', this.callFunction);
-    window.removeEventListener('resize', this.callFunction);
-    window.removeEventListener('orientationchange', this.callFunction);
+    window.removeEventListener('scroll', this.callFunction)
+    window.removeEventListener('resize', this.callFunction)
+    window.removeEventListener('orientationchange', this.callFunction)
   }
 
   init() {
     if (this.lazy) {
-      this.addListeners();
-      return this.lazyLoad();
+      this.addListeners()
+      return this.lazyLoad()
     }
 
-    return this.svg();
+    return this.svg()
   }
 
   connectedCallback() {
-    super.connectedCallback();
+    super.connectedCallback()
     if (this.path) {
-      this.init();
+      this.init()
     }
   }
 
   disconnectedCallback() {
-    super.disconnectedCallback();
-    this.removeListeners();
+    super.disconnectedCallback()
+    this.removeListeners()
   }
 
   constructor() {
-    super();
+    super()
 
-    this['loading-Label'] = 'Loading...';
-    this.callFunction = throttle(400, this.lazyLoad);
+    this['loading-Label'] = 'Loading...'
+    this.callFunction = throttle(400, this.lazyLoad)
   }
 
   render() {
     return html`
       ${this.svgDOM
-        ? html`
-            ${SvgToInline.parse(this.svgDOM)}
-          `
-        : html`
-            <span>${this['loading-Label']}</span>
-          `}
-    `;
+        ? html` ${SvgToInline.parse(this.svgDOM)} `
+        : html` <span>${this['loading-Label']}</span> `}
+    `
   }
 }

@@ -28,13 +28,16 @@
   "scripts": {
     "start": "",
     "build": "",
-    "format": "",
+    "check-formatting": "prettier --check --ignore-unknown \"**/*\"",
+    "formatting:fix": "npm run check-formatting -- --write",
     "lint": "",
     "test": "",
     "test:watch": "",
     "docs": "",
     "docs:build": ""
   },
-  "devDependencies": {},
-  "dependencies": {}
+  "devDependencies": {
+    "@tiagoporto/prettier-config": "^1.0.0-alpha.2",
+    "prettier": "^3.3.3"
+  }
 }

@@ -1,5 +1,5 @@
-import { html, render } from 'lit-html';
-import '../src/svg-to-inline.js';
+import { html, render } from 'lit-html'
+import '../src/svg-to-inline.js'
 
 {
   // https://upload.wikimedia.org/wikipedia/commons/6/66/Rammstein_logo_2.svg
@@ -16,7 +16,8 @@ render(
   html`
     <h1>tertertertertert ert ert twegwwetbgdb wergbfgwerg</h1>
 
-    <svg-to-inline path="images/logos/logo.svg" lazy=${true} class-name="test"> </svg-to-inline>
+    <svg-to-inline path="images/logos/logo.svg" lazy=${true} class-name="test">
+    </svg-to-inline>
     <p>tertertertertert ert ert twegwwetbgdb wergbfgwerg</p>
     <p>tertertertertert ert ert twegwwetbgdb wergbfgwerg</p>
     <p>tertertertertert ert ert twegwwetbgdb wergbfgwerg</p>
@@ -82,4 +83,4 @@ render(
     </svg-to-inline>
   `,
   document.querySelector('#demo'),
-);
+)

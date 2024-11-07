@@ -1,3 +1,3 @@
-import SvgToInline from './SvgToInline.js';
+import SvgToInline from './SvgToInline.js'
 
-window.customElements.define('svg-to-inline', SvgToInline);
+window.customElements.define('svg-to-inline', SvgToInline)
