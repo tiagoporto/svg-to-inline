@@ -1,8 +1,6 @@
 <p align="center">
-  <img src="https://socialify.git.ci/tiagoporto/svg-to-inline/image?description=1&language=1&name=1&pattern=Charlie%20Brown&theme=Light" alt="svg-to-inline web component" />
+  <img src="https://socialify.git.ci/tiagoporto/svg-to-inline/image?description=1&font=Jost&name=1&pattern=Charlie%20Brown&theme=Light" alt="svg-to-inline web component" />
 </p>
-
-![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.svg)
 
 <p align="right">
   <code> 👍 ? <a href="https://github.com/tiagoporto/svg-to-inline/stargazers">⭐</a> : <a href="https://github.com/tiagoporto/svg-to-inline/issues">😞</a></code>
@@ -48,3 +46,5 @@ npm i svg-to-inline
 ## License 📄
 
 This project is licensed under the [MIT License](LICENSE).
+
+<!-- ![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.svg) -->
