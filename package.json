@@ -1,11 +1,12 @@
 {
   "name": "svg-to-inline",
   "version": "1.0.0-alpha.1",
-  "description": "Web Component to request an external SVG file and use it inline.",
+  "description": "Web Component to fetch an external SVG file and use it inline.",
   "homepage": "https://tiagoporto.github.io/svg-to-inline",
   "keywords": [
     "svg",
     "inline",
+    "fetch",
     "include",
     "inject",
     "web component",
@@ -27,6 +28,7 @@
   "scripts": {
     "start": "",
     "build": "",
+    "check-docs": "remark --frail .",
     "check-formatting": "prettier --check --ignore-unknown \"**/*\"",
     "formatting:fix": "npm run check-formatting -- --write",
     "lint": "",
@@ -37,6 +39,7 @@
   },
   "devDependencies": {
     "@tiagoporto/prettier-config": "^1.0.0-alpha.2",
+    "@tiagoporto/remark-config": "^1.0.0-alpha.1",
     "prettier": "^3.3.3"
   }
 }
