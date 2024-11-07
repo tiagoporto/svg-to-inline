@@ -21,6 +21,10 @@
     "url": "https://github.com/tiagoporto/svg-to-inline.git"
   },
   "license": "MIT",
+  "engines": {
+    "node": ">= 20",
+    "npm": ">= 10"
+  },
   "scripts": {
     "start": "",
     "build": "",
