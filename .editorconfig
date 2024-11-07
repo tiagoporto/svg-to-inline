@@ -4,23 +4,26 @@
 
 root = true
 
+
 [*]
-charset = utf-8
-end_of_line = lf
-indent_size = 2
+
+# Change these settings to your own preference
 indent_style = space
+indent_size = 2
+
+# We recommend you to keep these unchanged
+end_of_line = lf
+charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[{*.json,.bowerrc,.csslintrc,.eslintrc,.gitignore,.gitattributes}]
-insert_final_newline = false
-
 [*.md]
-insert_final_newline = false
 trim_trailing_whitespace = false
 
-[*.{html,js}]
+[*.json]
+indent_size = 2
+
+[*.{html,js,md}]
 block_comment_start = /**
 block_comment = *
 block_comment_end = */
-

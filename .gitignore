@@ -1,91 +1,24 @@
-#############
-## System files
-#############
+## editors
+/.idea
+/.vscode
 
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
-
-# Folder config file
-Desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Mac crap
+## system files
 .DS_Store
 
-#################
-## Unit test / coverage reports
-#################
+## npm
+/node_modules/
+/npm-debug.log
 
-coverage.lcov
-coverage
-.coverage
-.tox
-.nyc_output
-lib-cov
+## testing
+/coverage/
 
-#################
-## NPM
-#################
+## temp folders
+/.tmp/
 
-.npm
-node_modules/
-.lock-wscript
+# build
+/_site/
+/dist/
+/out-tsc/
 
-# Output of 'npm pack'
-*.tgz
-
-#################
-## Logs
-#################
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-#################
-## Runtime data
-#################
-pids
-*.pid
-*.seed
-*.pid.lock
-
-#################
-## Bower Components
-#################
-
-bower_components
-
-#################
-## Yarn
-#################
-.yarn-integrity
-
-#################
-## Eslint
-#################
-.eslintcache
-
-#################
-## SASS Cache
-#################
-
-.sass-cache
-
-#################
-## Gh-pages
-#################
-
-.publish
-
-#################
-## Swill boilerplate
-#################
-
-build/
-src/styles/helpers/_helpers.styl
-src/styles/helpers/_helpers.scss
+storybook-static
+custom-elements.json
