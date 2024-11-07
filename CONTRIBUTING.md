@@ -1,7 +1,30 @@
-# Guidelines to contribute
+# Contributing
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+## Development
+
+### Pre-requirements
+
+- [git](https://git-scm.com)
+- [nvm](https://github.com/nvm-sh/nvm)
+
+### Install node
+
+```bash
+nvm install
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run development server
+
+```bash
+npm start
+```
+
+## Guidelines to contribute
+
+[CONTRIBUTING.md](https://github.com/tiagoporto/.github/blob/main/CONTRIBUTING.md)

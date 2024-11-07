@@ -1,24 +1,28 @@
-# SVG to Inline ![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.svg)
+<p align="center">
+  <img src="https://socialify.git.ci/tiagoporto/svg-to-inline/image?description=1&language=1&name=1&pattern=Charlie%20Brown&theme=Light" alt="svg-to-inline web component" />
+</p>
+
+![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.svg)
 
 <p align="right">
-  <code>LIKED ? Leave a <a href="https://github.com/tiagoporto/svg-to-inline/stargazers">⭐</a> : <a href="https://github.com/tiagoporto/svg-to-inline/issues">😞</a></code>
+  <code> 👍 ? <a href="https://github.com/tiagoporto/svg-to-inline/stargazers">⭐</a> : <a href="https://github.com/tiagoporto/svg-to-inline/issues">😞</a></code>
 </p>
+
+## Status ✅
 
 [![Release](https://img.shields.io/npm/v/svg-to-inline.svg?style=flat-square&label=release)](https://github.com/tiagoporto/svg-to-inline/releases)
 [![Downloads](https://img.shields.io/npm/dt/svg-to-inline.svg?style=flat-square)](https://www.npmjs.com/package/svg-to-inline)
 [![install size](https://packagephobia.now.sh/badge?p=svg-to-inline)](https://packagephobia.now.sh/result?p=svg-to-inline)
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-yellow.svg?style=flat-square)](http://standardjs.com)
-[![License](https://img.shields.io/github/license/tiagoporto/svg-to-inline.svg?style=flat-square)](LICENSE)
 
-<!-- [![Build Status](https://img.shields.io/travis/com/tiagoporto/svg-to-inline/main.svg?label=tests&logo=travis&style=flat-square)](https://travis-ci.com/tiagoporto/svg-to-inline)
+<!--
 [![Coverage Status](https://img.shields.io/coveralls/tiagoporto/svg-to-inline.svg?style=flat-square)](https://coveralls.io/github/tiagoporto/svg-to-inline)
-[![Mutation testing cover](https://badge.stryker-mutator.io/github.com/tiagoporto/svg-to-inline/main)](https://stryker-mutator.github.io) -->
+ -->
 
-[![devDependencies Status](https://img.shields.io/david/dev/tiagoporto/svg-to-inline.svg?style=flat-square)](https://david-dm.org/tiagoporto/svg-to-inline?type=dev)
+## Demo 🚀
+
+Access <https://tiagoporto.github.io/svg-to-inline/>
 
 > Web Component to request an SVG file external and use inline.
-
-_Work in Progress_
 
 ## Installation
 
@@ -30,7 +34,7 @@ npm i svg-to-inline
 
 ```html
 <script type="module">
-  import 'svg-to-inline/svg-to-inline.js';
+  import "svg-to-inline/svg-to-inline.js";
 </script>
 
 <svg-to-inline
@@ -41,10 +45,6 @@ npm i svg-to-inline
 ></svg-to-inline>
 ```
 
-## Contributing
+## License 📄
 
-[See how to contribute](CONTRIBUTING.md).
-
-## License
-
-SVG to Inline is released under the terms of the [MIT](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
