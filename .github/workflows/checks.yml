@@ -31,5 +31,5 @@ jobs:
       - name: Check Typing
         run: npm run check-typing
 
-      # - name: Lint
-      #   run: npm run lint
+      - name: Lint
+        run: npm run lint
