@@ -29,8 +29,10 @@
     "prepare": "husky",
     "start": "",
     "build": "",
+    "checks": "npm run check-docs && npm run check-formatting && npm run check-typing",
     "check-docs": "remark --frail .",
     "check-formatting": "prettier --check --ignore-unknown \"**/*\"",
+    "check-typing": "tsc --project tsconfig.json",
     "formatting:fix": "npm run check-formatting -- --write",
     "lint": "",
     "test": "",
@@ -42,6 +44,7 @@
     "@tiagoporto/prettier-config": "^1.0.0-alpha.2",
     "@tiagoporto/remark-config": "^1.0.0-alpha.1",
     "husky": "^9.1.6",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
   }
 }

@@ -22,11 +22,14 @@ jobs:
       - name: Install Dependencies
         run: npm ci --ignore-scripts
 
+      - name: Check Docs
+        run: npm run check-docs
+
       - name: Check Formatting
         run: npm run check-formatting
 
-      - name: Check Docs
-        run: npm run check-docs
+      - name: Check Typing
+        run: npm run check-typing
 
       # - name: Lint
       #   run: npm run lint
