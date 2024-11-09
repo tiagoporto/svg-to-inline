@@ -34,17 +34,28 @@
     "check-formatting": "prettier --check --ignore-unknown \"**/*\"",
     "formatting:fix": "npm run check-formatting -- --write",
     "check-typing": "tsc --project tsconfig.json",
-    "lint": "eslint . --ext js,mjs,ts,html --ignore-path .gitignore",
+    "lint": "eslint . --ext js,mjs,ts,html",
     "lint:fix": "npm run lint -- --fix",
     "test": "",
     "test:watch": "",
     "docs": "",
-    "docs:build": ""
+    "docs:build": "",
+    "start:site": "storybook dev -p 6006",
+    "build:site": "storybook build"
+  },
+  "dependencies": {
+    "lit": "^3.2.1"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.2",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@open-wc/eslint-config": "^12.0.3",
+    "@storybook/addon-essentials": "^8.4.2",
+    "@storybook/blocks": "^8.4.2",
+    "@storybook/test": "^8.4.2",
+    "@storybook/web-components": "^8.4.2",
+    "@storybook/web-components-vite": "^8.4.2",
     "@tiagoporto/prettier-config": "^1.0.0-alpha.2",
     "@tiagoporto/remark-config": "^1.0.0-alpha.1",
     "@typescript-eslint/eslint-plugin": "^8.13.0",
@@ -53,6 +64,7 @@
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.1.6",
     "prettier": "^3.3.3",
+    "storybook": "^8.4.2",
     "typescript": "^5.6.3"
   }
 }
