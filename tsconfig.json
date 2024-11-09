@@ -12,8 +12,7 @@
     "outDir": "dist",
     "sourceMap": true,
     "inlineSources": true,
-    "rootDir": "./",
-    "incremental": true,
+    "rootDir": "./src",
     "skipLibCheck": true,
     "noEmit": true
   },

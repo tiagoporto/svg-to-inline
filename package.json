@@ -31,7 +31,7 @@
     "analyze": "custom-elements-manifest analyze --litelement --exclude demo dist storybook-static \"**/*.(story|stories).*\"",
     "prepare": "husky",
     "start": "",
-    "build": "",
+    "build": "tsc --project tsconfig.build.json && npm run analyze",
     "checks": "npm run check-docs && npm run check-formatting && npm run check-typing && npm run lint",
     "check-docs": "remark --frail .",
     "check-formatting": "prettier --check --ignore-unknown \"**/*\"",

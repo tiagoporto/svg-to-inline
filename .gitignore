@@ -7,6 +7,8 @@
 ## npm
 /node_modules/
 /npm-debug.log
+/package
+*.tgz
 
 ## testing
 /coverage/
@@ -19,7 +21,9 @@
 /dist/
 /out-tsc/
 
+# Storybook
 storybook-static
-custom-elements.json
-
 *storybook.log
+
+custom-elements.json
+tsconfig.build.tsbuildinfo
