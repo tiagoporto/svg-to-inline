@@ -42,6 +42,8 @@
     "docs:build": ""
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@open-wc/eslint-config": "^12.0.3",
     "@tiagoporto/prettier-config": "^1.0.0-alpha.2",
     "@tiagoporto/remark-config": "^1.0.0-alpha.1",
