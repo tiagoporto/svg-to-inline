@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { html, render } from 'lit-html'
 import '../src/svg-to-inline.js'
 

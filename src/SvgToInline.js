@@ -1,3 +1,4 @@
+/* eslint-disable */
 import 'whatwg-fetch'
 import { html, css, LitElement, svg } from 'lit-element'
 import { throttle } from 'throttle-debounce'

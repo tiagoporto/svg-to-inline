@@ -35,7 +35,7 @@
     "check-formatting": "prettier --check --ignore-unknown \"**/*\"",
     "formatting:fix": "npm run check-formatting -- --write",
     "check-typing": "tsc --project tsconfig.json",
-    "lint": "eslint . --ext js,mjs,ts,html",
+    "lint": "eslint . --ext js,mjs,ts,html --ignore-path .gitignore",
     "lint:fix": "npm run lint -- --fix",
     "test": "",
     "test:watch": "",
