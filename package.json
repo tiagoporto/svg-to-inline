@@ -26,7 +26,9 @@
     "npm": ">= 10"
   },
   "type": "module",
+  "customElements": "custom-elements.json",
   "scripts": {
+    "analyze": "custom-elements-manifest analyze --litelement --exclude demo dist storybook-static \"**/*.(story|stories).*\"",
     "prepare": "husky",
     "start": "",
     "build": "",
@@ -51,6 +53,7 @@
     "@chromatic-com/storybook": "^3.2.2",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
+    "@custom-elements-manifest/analyzer": "^0.10.3",
     "@open-wc/eslint-config": "^12.0.3",
     "@storybook/addon-essentials": "^8.4.2",
     "@storybook/blocks": "^8.4.2",
