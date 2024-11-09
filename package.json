@@ -25,6 +25,7 @@
     "node": ">= 20",
     "npm": ">= 10"
   },
+  "type": "module",
   "scripts": {
     "prepare": "husky",
     "start": "",
