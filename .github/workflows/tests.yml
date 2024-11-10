@@ -1,4 +1,4 @@
-name: Checks
+name: Tests
 
 on:
   push:
@@ -12,8 +12,8 @@ on:
         converted_to_draft, # PR was converted from open to draft
       ]
 jobs:
-  checks:
-    name: Run Checks
+  tests:
+    name: Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -28,14 +28,14 @@ jobs:
       - name: Install Dependencies
         run: npm ci --ignore-scripts
 
-      - name: Check Docs
-        run: npm run check-docs
+      - name: Run Unit Tests
+        run: npm run test
 
-      - name: Check Formatting
-        run: npm run check-formatting
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
 
-      - name: Check Typing
-        run: npm run check-typing
-
-      - name: Lint
-        run: npm run lint
+      # - name: Run Unit Test in dist
+      #   run: |
+      #     npm pack
+      #     tar zxvf *.tgz
+      #     npm run test:bundle
