@@ -16,5 +16,5 @@
     "noEmit": true
   },
   "include": ["**/*.ts"],
-  "exclude": ["**/*.test.ts", "**/*.stories.ts"]
+  "exclude": ["**/*.stories.ts"]
 }

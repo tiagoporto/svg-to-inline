@@ -44,7 +44,8 @@
     "check-typing": "tsc --project tsconfig.json",
     "lint": "eslint . --ext js,mjs,ts,html --ignore-path .gitignore",
     "lint:fix": "npm run lint -- --fix",
-    "test": "tsc --project tsconfig.build.json && wtr --coverage",
+    "test": "tsc --project tsconfig.build.json && wtr",
+    "test:coverage": "tsc --project tsconfig.build.json && wtr --coverage",
     "test:watch": "tsc --project tsconfig.build.json && concurrently -k -r \"tsc --project tsconfig.build.json --watch --preserveWatchOutput\" \"wtr --watch\"",
     "docs": "storybook dev -p 6006",
     "docs:build": "storybook build"
