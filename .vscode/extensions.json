@@ -6,6 +6,7 @@
     "EditorConfig.EditorConfig",
     "esbenp.prettier-vscode",
     "runem.lit-plugin",
+    "unifiedjs.vscode-mdx",
     "unifiedjs.vscode-remark"
   ]
 }

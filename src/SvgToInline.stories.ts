@@ -8,7 +8,7 @@ interface ArgTypes {
 }
 
 export default {
-  title: 'SvgToInline',
+  title: 'SVG to Inline',
   tags: ['autodocs'],
   component: 'svg-to-inline',
   argTypes: {

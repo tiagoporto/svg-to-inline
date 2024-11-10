@@ -25,6 +25,12 @@ npm install
 npm start
 ```
 
+### Run docs
+
+```bash
+npm run docs
+```
+
 ## Guidelines to contribute
 
 [CONTRIBUTING.md](https://github.com/tiagoporto/.github/blob/main/CONTRIBUTING.md)
