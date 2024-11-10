@@ -27,10 +27,15 @@
   },
   "type": "module",
   "customElements": "custom-elements.json",
+  "main": "dist/SvgToInline.js",
+  "module": "dist/SvgToInline.js",
+  "exports": {
+    ".": "./dist/SvgToInline.js"
+  },
   "scripts": {
     "analyze": "custom-elements-manifest analyze --litelement --exclude demo dist storybook-static \"**/*.(story|stories).*\"",
     "prepare": "husky",
-    "start": "tsc --project tsconfig.build.json && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"web-dev-server\"",
+    "start": "tsc --project tsconfig.build.json && concurrently -k -r \"tsc --project tsconfig.build.json --watch --preserveWatchOutput\" \"web-dev-server\"",
     "build": "tsc --project tsconfig.build.json && npm run analyze",
     "checks": "npm run check-docs && npm run check-formatting && npm run check-typing && npm run lint",
     "check-docs": "remark --frail .",
@@ -45,7 +50,8 @@
     "docs:build": "storybook build"
   },
   "dependencies": {
-    "lit": "^3.2.1"
+    "lit": "^3.2.1",
+    "throttle-debounce": "^5.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
@@ -62,6 +68,7 @@
     "@tiagoporto/prettier-config": "^1.0.0-alpha.2",
     "@tiagoporto/remark-config": "^1.0.0-alpha.1",
     "@types/mocha": "^10.0.9",
+    "@types/throttle-debounce": "^5.0.2",
     "@typescript-eslint/eslint-plugin": "^8.13.0",
     "@typescript-eslint/parser": "^8.13.0",
     "@web/dev-server": "^0.4.6",

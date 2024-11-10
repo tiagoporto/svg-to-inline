@@ -4,6 +4,6 @@
     "incremental": true,
     "declaration": true,
     "noEmit": false,
-    "noEmitOnError": true
+    "noEmitOnError": false
   }
 }

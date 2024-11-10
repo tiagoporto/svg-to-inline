@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "es2021",
     "module": "NodeNext",
-    "moduleResolution": "NodeNext",
     "lib": ["es2021", "dom", "DOM.Iterable"],
     "strict": true,
     "esModuleInterop": false,
@@ -16,5 +15,6 @@
     "skipLibCheck": true,
     "noEmit": true
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts"],
+  "exclude": ["**/*.test.ts", "**/*.stories.ts"]
 }
