@@ -30,7 +30,7 @@
   "scripts": {
     "analyze": "custom-elements-manifest analyze --litelement --exclude demo dist storybook-static \"**/*.(story|stories).*\"",
     "prepare": "husky",
-    "start": "",
+    "start": "tsc --project tsconfig.build.json && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"web-dev-server\"",
     "build": "tsc --project tsconfig.build.json && npm run analyze",
     "checks": "npm run check-docs && npm run check-formatting && npm run check-typing && npm run lint",
     "check-docs": "remark --frail .",
@@ -64,6 +64,8 @@
     "@tiagoporto/remark-config": "^1.0.0-alpha.1",
     "@typescript-eslint/eslint-plugin": "^8.13.0",
     "@typescript-eslint/parser": "^8.13.0",
+    "@web/dev-server": "^0.4.6",
+    "concurrently": "^9.1.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.1.6",
