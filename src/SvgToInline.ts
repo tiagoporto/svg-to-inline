@@ -8,33 +8,48 @@ import { addClassNames } from './utils/addClassNames.js'
 @customElement('svg-to-inline')
 export class SvgToInline extends LitElement {
   @state()
-  private svgDOM: Node | null = null
+  private _svgDOM: string | null = null
 
   @state()
-  private throttleLazyFetchSVG: (event: Event) => void
+  private _throttleLazyFetchSVG: (event: Event) => void
 
-  // SVG path
   @property()
   path?: string
 
   @property({ type: Boolean })
-  // Enable Lazy load SVG
-  // SVG will be loaded only when it enters the viewport
   lazy: boolean = false
 
   @property()
   className: string = ''
 
+  constructor() {
+    super()
+
+    this._throttleLazyFetchSVG = throttle(400, this._lazyFetchSVG)
+  }
+
+  // Enable external styles
+  protected createRenderRoot() {
+    return this
+  }
+
+  updated(changedProperties: Map<PropertyKey, unknown>) {
+    if (changedProperties.has('path')) {
+      this._removeListeners()
+      this._init()
+    }
+  }
+
   private _addListeners() {
-    window.addEventListener('scroll', this.throttleLazyFetchSVG)
-    window.addEventListener('resize', this.throttleLazyFetchSVG)
-    window.addEventListener('orientationchange', this.throttleLazyFetchSVG)
+    window.addEventListener('scroll', this._throttleLazyFetchSVG)
+    window.addEventListener('resize', this._throttleLazyFetchSVG)
+    window.addEventListener('orientationchange', this._throttleLazyFetchSVG)
   }
 
   private _removeListeners() {
-    window.removeEventListener('scroll', this.throttleLazyFetchSVG)
-    window.removeEventListener('resize', this.throttleLazyFetchSVG)
-    window.removeEventListener('orientationchange', this.throttleLazyFetchSVG)
+    window.removeEventListener('scroll', this._throttleLazyFetchSVG)
+    window.removeEventListener('resize', this._throttleLazyFetchSVG)
+    window.removeEventListener('orientationchange', this._throttleLazyFetchSVG)
   }
 
   private _lazyFetchSVG = () => {
@@ -44,17 +59,11 @@ export class SvgToInline extends LitElement {
     }
   }
 
-  // Enable external styles
-  protected createRenderRoot() {
-    return this
-  }
-
   private async _fetchSVG() {
     if (this.path) {
-      let svgString = await fetchFile(this.path)
+      const svgString = await fetchFile(this.path)
 
-      svgString = addClassNames(svgString, this.className)
-      this.svgDOM = convertStringToNode(svgString)
+      this._svgDOM = svgString
     }
   }
 
@@ -83,13 +92,9 @@ export class SvgToInline extends LitElement {
     this._removeListeners()
   }
 
-  constructor() {
-    super()
-
-    this.throttleLazyFetchSVG = throttle(400, this._lazyFetchSVG)
-  }
-
   render() {
-    return html`${this.svgDOM ? this.svgDOM : html`<slot></slot>`}`
+    return html`${this._svgDOM
+      ? convertStringToNode(addClassNames(this._svgDOM, this.className))
+      : html`<slot></slot>`}`
   }
 }

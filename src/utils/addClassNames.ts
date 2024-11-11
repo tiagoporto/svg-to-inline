@@ -1,6 +1,6 @@
 export const addClassNames = (
   svgString: string | null,
-  classNamesToAdd: string,
+  classNamesToAdd?: string,
 ) => {
   if (!classNamesToAdd || !svgString) {
     return svgString

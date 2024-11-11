@@ -31,14 +31,13 @@ npm i svg-to-inline
 
 ```html
 <script type="module">
-  import 'svg-to-inline/svg-to-inline.js'
+  import 'svg-to-inline/SvgToInline.js'
 </script>
 
 <svg-to-inline
-  path="images/logos/logo.svg"
-  lazy="true"
-  class-Name="my-class other-class"
-  loading-Label="Loading"
+  path="./images/logo.svg"
+  className="my-class other-class"
+  lazy
 ></svg-to-inline>
 ```
 
