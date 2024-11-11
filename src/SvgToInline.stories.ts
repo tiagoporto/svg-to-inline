@@ -46,5 +46,5 @@ const Template: Story<ArgTypes> = ({ path, className }: ArgTypes) => html`
 
 export const Regular = Template.bind({})
 Regular.args = {
-  path: '/SVG_Logo.svg',
+  path: './SVG_Logo.svg',
 }
