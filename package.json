@@ -1,6 +1,6 @@
 {
   "name": "svg-to-inline",
-  "version": "1.0.0-alpha.1",
+  "version": "0.0.0-development",
   "description": "Web Component to fetch an external SVG file and use it inline.",
   "homepage": "https://tiagoporto.github.io/svg-to-inline",
   "keywords": [
@@ -32,9 +32,15 @@
   "exports": {
     ".": "./dist/SvgToInline.js"
   },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.ts",
+    "!dist/**/*.test*"
+  ],
   "scripts": {
-    "analyze": "custom-elements-manifest analyze --litelement --exclude demo dist storybook-static \"**/*.(story|stories).*\"",
+    "prepublishOnly": "rm -rf dist && rm -f tsconfig.build.tsbuildinfo && npm run build",
     "prepare": "husky",
+    "analyze": "custom-elements-manifest analyze --litelement --exclude demo dist storybook-static \"**/*.(story|stories).*\"",
     "start": "tsc --project tsconfig.build.json && concurrently -k -r \"tsc --project tsconfig.build.json --watch --preserveWatchOutput\" \"web-dev-server\"",
     "build": "tsc --project tsconfig.build.json && npm run analyze",
     "checks": "npm run check-docs && npm run check-formatting && npm run check-typing && npm run lint",
@@ -79,7 +85,11 @@
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.1.6",
     "prettier": "^3.3.3",
+    "semantic-release": "^24.2.0",
     "storybook": "^8.4.2",
     "typescript": "^5.6.3"
+  },
+  "overrides": {
+    "conventional-changelog-conventionalcommits": ">=8.0.0"
   }
 }
