@@ -8,7 +8,7 @@
 
 [![Release](https://img.shields.io/npm/v/svg-to-inline.svg?style=flat-square\&label=release)](https://github.com/tiagoporto/svg-to-inline/releases)
 [![Downloads](https://img.shields.io/npm/dt/svg-to-inline.svg?style=flat-square)](https://www.npmjs.com/package/svg-to-inline)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/svg-to-inline?style=flat-square)](https://packagephobia.now.sh/result?p=svg-to-inline)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/svg-to-inline?style=flat-square)](https://bundlephobia.com/package/svg-to-inline)
 
 ## Status ✅
 
