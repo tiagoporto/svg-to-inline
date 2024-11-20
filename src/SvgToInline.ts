@@ -1,4 +1,5 @@
 import { html, LitElement } from 'lit'
+import type { TemplateResult } from 'lit'
 import { state, customElement, property } from 'lit/decorators.js'
 import { throttle } from 'throttle-debounce'
 import { fetchFile } from './utils/fetchFile.js'
@@ -11,16 +12,25 @@ export class SvgToInline extends LitElement {
   private _svgDOM: string | null = null
 
   @state()
+  private _statusElement?: TemplateResult | null
+
+  @state()
   private _throttleLazyFetchSVG: (event: Event) => void
 
   @property()
   path?: string
 
-  @property({ type: Boolean })
-  lazy: boolean = false
-
   @property()
   className: string = ''
+
+  @property({ type: Object, attribute: 'loading-label' })
+  loading?: TemplateResult
+
+  @property({ type: Object })
+  placeholder?: TemplateResult
+
+  @property({ type: Boolean })
+  lazy: boolean = false
 
   constructor() {
     super()
@@ -61,9 +71,17 @@ export class SvgToInline extends LitElement {
 
   private async _fetchSVG() {
     if (this.path) {
+      if (this.loading) {
+        this._statusElement = this.loading
+      }
       const svgString = await fetchFile(this.path)
 
-      this._svgDOM = svgString
+      if (svgString) {
+        this._svgDOM = svgString
+      } else {
+        this._svgDOM = null
+        this._statusElement = this.placeholder
+      }
     }
   }
 
@@ -95,6 +113,6 @@ export class SvgToInline extends LitElement {
   render() {
     return html`${this._svgDOM
       ? convertStringToNode(addClassNames(this._svgDOM, this.className))
-      : html`<slot></slot>`}`
+      : this._statusElement}`
   }
 }
