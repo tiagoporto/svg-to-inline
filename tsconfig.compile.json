@@ -1,12 +1,13 @@
 {
   "extends": "./tsconfig",
   "compilerOptions": {
-    "rootDir": "./src",
+    "rootDir": ".",
     "importHelpers": true,
     "downlevelIteration": true,
-    "declaration": true,
+    "incremental": true,
     "noEmit": false,
-    "noEmitOnError": false
+    "sourceMap": true,
+    "inlineSources": true
   },
-  "exclude": ["**/*.stories.ts", "**/*.test.ts"]
+  "exclude": ["**/*.stories.ts"]
 }

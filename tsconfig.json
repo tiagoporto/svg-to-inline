@@ -7,14 +7,10 @@
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "importHelpers": true,
     "outDir": "dist",
-    "sourceMap": true,
-    "inlineSources": true,
-    "rootDir": "./src",
+    "rootDir": ".",
     "skipLibCheck": true,
     "noEmit": true
   },
-  "include": ["**/*.ts"],
-  "exclude": ["**/*.stories.ts"]
+  "include": ["**/*.ts"]
 }

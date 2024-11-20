@@ -27,34 +27,37 @@
   },
   "type": "module",
   "customElements": "custom-elements.json",
+  "types": "dist/SvgToInline.d.ts",
   "main": "dist/SvgToInline.js",
   "module": "dist/SvgToInline.js",
   "exports": {
-    ".": "./dist/SvgToInline.js"
+    ".": "./dist/SvgToInline.js",
+    "./customElements": "./custom-elements.json"
   },
   "files": [
-    "dist/**/*.js",
-    "dist/**/*.ts",
-    "!dist/**/*.test*"
+    "dist",
+    "custom-elements.json"
   ],
   "scripts": {
-    "prepublishOnly": "rm -rf dist && rm -f tsconfig.build.tsbuildinfo && npm run build",
+    "prepack": "npm run build",
     "prepare": "husky",
     "analyze": "custom-elements-manifest analyze --litelement --exclude demo dist storybook-static \"**/*.(story|stories).*\"",
-    "start": "tsc --project tsconfig.build.json && concurrently -k -r \"tsc --project tsconfig.build.json --watch --preserveWatchOutput\" \"web-dev-server\"",
+    "compile": "tsc --project tsconfig.compile.json",
+    "start": "npm run compile && concurrently -k -r \"npm run compile -- --watch --preserveWatchOutput\" \"web-dev-server\"",
+    "prebuild": "rm -rf dist",
     "build": "tsc --project tsconfig.build.json && npm run analyze",
+    "docs": "npm run analyze && storybook dev -p 6006",
+    "docs:build": "npm run analyze && storybook build",
     "checks": "npm run check-docs && npm run check-formatting && npm run check-typing && npm run lint",
     "check-docs": "remark --frail .",
     "check-formatting": "prettier --check --ignore-unknown \"**/*\"",
     "formatting:fix": "npm run check-formatting -- --write",
-    "check-typing": "tsc --project tsconfig.json",
-    "lint": "eslint . --ext js,mjs,ts,html --ignore-path .gitignore",
+    "check-typing": "tsc",
+    "lint": "eslint . --ext js,mjs,ts,html --ignore-path .gitignore --max-warnings 0",
     "lint:fix": "npm run lint -- --fix",
-    "test": "tsc --project tsconfig.build.json && wtr",
-    "test:coverage": "tsc --project tsconfig.build.json && wtr --coverage",
-    "test:watch": "tsc --project tsconfig.build.json && concurrently -k -r \"tsc --project tsconfig.build.json --watch --preserveWatchOutput\" \"wtr --watch\"",
-    "docs": "storybook dev -p 6006",
-    "docs:build": "storybook build"
+    "test": "npm run compile && wtr",
+    "test:coverage": "npm run compile && wtr --coverage",
+    "test:watch": "npm run compile && concurrently -k -r \"npm run compile -- --watch --preserveWatchOutput\" \"wtr --watch\""
   },
   "dependencies": {
     "lit": "^3.2.1",
