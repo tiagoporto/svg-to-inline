@@ -10,19 +10,28 @@
   <body>
     <script type="module">
       import '../dist/src/SvgToInline.js'
-    </script>
-    <!>
+      // import { html, render } from 'lit-html'
 
-    <!-- <svg-to-inline
-      path="https://upload.wikimedia.org/wikipedia/de/e/ec/Metallica_Logo.svg"
-    ></svg-to-inline>
+      // const element = html``
+
+      // render(element, document.body)
+    </script>
 
     <svg-to-inline
+      class="1111 2222 333"
+      path="https://upload.wikimedia.org/wikipedia/de/e/ec/Metallica_Logo.svg"
+      placeholder="Some error"
+      loading="loading..."
+      lazy
+    >
+    </svg-to-inline>
+
+    <!--<svg-to-inline
       path="https://upload.wikimedia.org/wikipedia/commons/6/66/Rammstein_logo_2.svg"
       lazy
     ></svg-to-inline> -->
 
-    <svg-to-inline path="./SVG_logo.svg" lazy> </svg-to-inline>
+    <!-- <svg-to-inline path="./SVG_logo.svg" lazy> </svg-to-inline> -->
     <!-- <svg-to-inline path="./SVG_logo.svg" lazy classname="class1 inline-class">
     </svg-to-inline>
     <svg-to-inline path="./SVG_logo.svg" lazy classname="class2   class3">

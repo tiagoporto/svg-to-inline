@@ -1,23 +1,25 @@
 import { html } from 'lit'
 import type { TemplateResult } from 'lit'
+import type { Meta, StoryObj } from '@storybook/web-components'
+
 import './SvgToInline.ts'
 
 interface ArgTypes {
   path: string
   className: string
-  placeholder?: TemplateResult
+  placeholder?: TemplateResult | string
   lazy?: boolean
-  'loading-label'?: TemplateResult
+  loading?: TemplateResult | string
 }
 
-export default {
+const meta: Meta = {
   title: 'SVG to Inline',
   tags: ['autodocs'],
   component: 'svg-to-inline',
   argTypes: {
     path: {
       control: 'text',
-      type: { required: true },
+      type: { required: true, name: 'string' },
       description: 'SVG path',
     },
     className: {
@@ -26,7 +28,7 @@ export default {
         type: { summary: 'string' },
       },
     },
-    'loading-label': {
+    loading: {
       control: 'text',
       description: 'While loading the element to be visible',
       table: {
@@ -46,12 +48,13 @@ export default {
 Enable Lazing load SVG\n
 SVG will be loaded only when it enters the viewport`,
       table: {
-        defaultValue: { summary: false },
         type: { summary: 'boolean' },
       },
     },
   },
 }
+
+export default meta
 
 interface Story<T> {
   (args: T): TemplateResult
@@ -62,20 +65,20 @@ interface Story<T> {
 const Template: Story<ArgTypes> = ({
   path,
   className,
-  'loading-label': loadingLabel,
+  loading,
   placeholder,
 }: ArgTypes) => html`
   <svg-to-inline
     path=${path}
-    classname=${className}
-    .placeholder=${placeholder}
-    .loading-label=${loadingLabel}
+    className=${className}
+    placeholder=${placeholder}
+    loading=${loading}
   ></svg-to-inline>
 `
 
 export const Regular = Template.bind({})
 Regular.args = {
-  path: './SVG_Logo.svg.',
-  'loading-label': html`<button>loading</button>`,
-  placeholder: html`<button>placeholder</button>`,
+  path: './SVG_Logo.svg',
+  loading: 'loading...',
+  placeholder: 'Some Error',
 }

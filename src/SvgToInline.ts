@@ -12,7 +12,7 @@ export class SvgToInline extends LitElement {
   private _svgDOM: string | null = null
 
   @state()
-  private _statusElement?: TemplateResult | null
+  private _statusElement?: TemplateResult | string | null
 
   @state()
   private _throttleLazyFetchSVG: (event: Event) => void
@@ -21,13 +21,13 @@ export class SvgToInline extends LitElement {
   path?: string
 
   @property()
-  className: string = ''
+  className = ''
 
-  @property({ type: Object, attribute: 'loading-label' })
-  loading?: TemplateResult
+  @property()
+  loading?: TemplateResult | string
 
-  @property({ type: Object })
-  placeholder?: TemplateResult
+  @property()
+  placeholder?: TemplateResult | string
 
   @property({ type: Boolean })
   lazy: boolean = false
@@ -114,5 +114,11 @@ export class SvgToInline extends LitElement {
     return html`${this._svgDOM
       ? convertStringToNode(addClassNames(this._svgDOM, this.className))
       : this._statusElement}`
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'svg-to-inline': SvgToInline
   }
 }
