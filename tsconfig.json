@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "target": "es2021",
-    "module": "NodeNext",
+    "module": "es2015",
     "lib": ["es2021", "dom", "DOM.Iterable"],
+    "moduleResolution": "node",
     "strict": true,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
@@ -10,7 +11,8 @@
     "outDir": "dist",
     "rootDir": ".",
     "skipLibCheck": true,
-    "noEmit": true
+    "noEmit": true,
+    "useDefineForClassFields": false
   },
   "include": ["**/*.ts"]
 }
