@@ -115,9 +115,3 @@ export class SvgToInline extends LitElement {
       : this._statusElement}`
   }
 }
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'svg-to-inline': SvgToInline
-  }
-}

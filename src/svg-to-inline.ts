@@ -1,3 +1,9 @@
 import { SvgToInline } from './SvgToInline.js'
 
-window.customElements.define('svg-to-inline', SvgToInline)
+customElements.define('svg-to-inline', SvgToInline)
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'svg-to-inline': SvgToInline
+  }
+}
