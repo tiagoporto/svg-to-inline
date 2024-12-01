@@ -37,7 +37,7 @@ jobs:
         run: npm run check-formatting
 
       - name: Check Typing
-        run: npm run check-typing
+        run: npm run typecheck
 
       - name: Lint
         run: npm run lint
