@@ -31,7 +31,7 @@ npm i svg-to-inline
 
 ```html
 <script type="module">
-  import 'svg-to-inline/SvgToInline.js'
+  import 'svg-to-inline/svg-to-inline.js'
 </script>
 
 <svg-to-inline

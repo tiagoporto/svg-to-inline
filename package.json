@@ -27,11 +27,12 @@
   },
   "type": "module",
   "customElements": "custom-elements.json",
-  "types": "dist/SvgToInline.d.ts",
-  "main": "dist/SvgToInline.js",
-  "module": "dist/SvgToInline.js",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "exports": {
-    ".": "./dist/SvgToInline.js",
+    ".": "./dist/index.js",
+    "./svg-to-inline.js": "./dist/svg-to-inline.js",
     "./customElements": "./custom-elements.json"
   },
   "files": [

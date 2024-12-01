@@ -1,12 +1,11 @@
 import { html, LitElement } from 'lit'
 import type { TemplateResult } from 'lit'
-import { state, customElement, property } from 'lit/decorators.js'
+import { state, property } from 'lit/decorators.js'
 import { throttle } from 'throttle-debounce'
 import { fetchFile } from './utils/fetchFile.js'
 import { convertStringToNode } from './utils/convertStringToNode.js'
 import { addClassNames } from './utils/addClassNames.js'
 
-@customElement('svg-to-inline')
 export class SvgToInline extends LitElement {
   @state()
   private _svgDOM: string | null = null
@@ -17,10 +16,10 @@ export class SvgToInline extends LitElement {
   @state()
   private _throttleLazyFetchSVG: (event: Event) => void
 
-  @property()
-  path?: string
+  @property({ type: String })
+  path = ''
 
-  @property()
+  @property({ type: String })
   className = ''
 
   @property()
@@ -30,7 +29,7 @@ export class SvgToInline extends LitElement {
   placeholder?: TemplateResult | string
 
   @property({ type: Boolean })
-  lazy: boolean = false
+  lazy = false
 
   constructor() {
     super()

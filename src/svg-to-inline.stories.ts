@@ -1,8 +1,8 @@
 import { html } from 'lit'
 import type { TemplateResult } from 'lit'
-import type { Meta, StoryObj } from '@storybook/web-components'
+import type { Meta } from '@storybook/web-components'
 
-import './SvgToInline.ts'
+import './svg-to-inline.js'
 
 interface ArgTypes {
   path: string
