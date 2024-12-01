@@ -5,7 +5,7 @@ export const addClassNames = (
   if (!classNamesToAdd || !svgString) {
     return svgString
   }
-  const searchClassAttributeRegex = /class="(.*?)"/
+  const searchClassAttributeRegex = /<svg[^>]+class="(.*?)"/
   const extractSVGTagRegex = /(<svg[^>]+)/
   const extractSVGUntilClassAttributeRegex = /(<svg[^>]+) class="(.*?)"/
 
