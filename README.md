@@ -13,8 +13,8 @@
 ## Status ✅
 
 ![Website](https://img.shields.io/website?logo=githubpages\&style=flat-square\&url=https://tiagoporto.github.io/svg-to-inline)
-[![checks GA Workflow Status](https://img.shields.io/github/actions/workflow/status/tiagoporto/svg-to-inline/checks.yml?label=checks\&logo=githubactions\&logoColor=white\&style=flat-square)](https://github.com/tiagoporto/svg-to-inline/actions/workflows/checks.yml)
-[![tests GA Workflow Status](https://img.shields.io/github/actions/workflow/status/tiagoporto/svg-to-inline/tests.yml?label=tests\&logo=githubactions\&logoColor=white\&style=flat-square)](https://github.com/tiagoporto/svg-to-inline/actions/workflows/tests.yml)
+[![Checks GA Workflow Status](https://img.shields.io/github/actions/workflow/status/tiagoporto/svg-to-inline/checks.yml?label=checks\&logo=githubactions\&logoColor=white\&style=flat-square)](https://github.com/tiagoporto/svg-to-inline/actions/workflows/checks.yml)
+[![Tests GA Workflow Status](https://img.shields.io/github/actions/workflow/status/tiagoporto/svg-to-inline/tests.yml?label=tests\&logo=githubactions\&logoColor=white\&style=flat-square)](https://github.com/tiagoporto/svg-to-inline/actions/workflows/tests.yml)
 [![Coverage Status](https://img.shields.io/coveralls/tiagoporto/svg-to-inline.svg?logo=coveralls\&style=flat-square)](https://coveralls.io/github/tiagoporto/svg-to-inline)
 
 ## Demo 🚀
