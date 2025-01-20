@@ -1,24 +1,27 @@
 name: Release
+
 on: workflow_dispatch
 
-permissions:
-  contents: read # for checkout
-
 jobs:
+  checks:
+    uses: ./.github/workflows/checks.yml
+    secrets: inherit
+
+  unit_tests:
+    uses: ./.github/workflows/unit-tests.yml
+    secrets: inherit
+
   release:
-    name: Release
     runs-on: ubuntu-latest
     permissions:
       contents: write # to be able to publish a GitHub release
       issues: write # to be able to comment on released issues
       pull-requests: write # to be able to comment on released pull requests
       id-token: write # to enable use of OIDC for npm provenance
-
+    needs: [checks]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup node
         uses: actions/setup-node@v4

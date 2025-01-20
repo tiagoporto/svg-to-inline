@@ -1,6 +1,7 @@
 name: Checks
 
 on:
+  workflow_call:
   push:
     branches: [main]
   pull_request:
@@ -11,9 +12,13 @@ on:
         ready_for_review, # PR was converted from draft to open
         converted_to_draft, # PR was converted from open to draft
       ]
+
+concurrency:
+  group: checks_${{ github.workflow }}_${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   checks:
-    name: Run Checks
     runs-on: ubuntu-latest
 
     steps:
