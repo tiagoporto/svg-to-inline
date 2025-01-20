@@ -1,12 +1,8 @@
 {
-  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
   },
-  "[markdown]": {
-    "editor.defaultFormatter": "unifiedjs.vscode-remark",
-    "editor.formatOnSave": true
-  },
+  "editor.formatOnSave": true,
   "typescript.tsdk": "node_modules/typescript/lib",
   "html.customData": ["./vscode.html-custom-data.json"]
 }
