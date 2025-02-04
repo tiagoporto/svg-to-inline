@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://socialify.git.ci/tiagoporto/svg-to-inline/image?description=1&font=Jost&logo=https://raw.githubusercontent.com/tiagoporto/svg-to-inline/refs/heads/main/docs/webcomponents%252Bsvg.svg?token=1&owner=1&pattern=Signal" alt="Svg to inline web component" />
+  <img src="https://socialify.git.ci/tiagoporto/svg-to-inline/image?description=1&font=Jost&logo=https%3A%2F%2Fraw.githubusercontent.com%2Ftiagoporto%2Fsvg-to-inline%2Frefs%2Fheads%2Fmain%2Fdocs%2Fwebcomponents%252Bsvg_logo.svg&name=1&owner=1&pattern=Signal&theme=Light" alt="Svg to inline web component" />
 </p>
 
 [![Release](https://img.shields.io/npm/v/svg-to-inline.svg?style=flat-square&label=release)](https://github.com/tiagoporto/svg-to-inline/releases)
