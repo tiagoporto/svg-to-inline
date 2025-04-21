@@ -38,30 +38,15 @@
 <meta name="apple-mobile-web-app-title" content="SVG to Inline" />
 <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png" />
 
-<!-- Google Tag Manager -->
+<!-- Google tag (gtag.js) -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=%STORYBOOK_GTAG_ID%"
+></script>
 <script>
-  ;(function (w, d, s, l, i) {
-    w[l] = w[l] || []
-    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
-    var f = d.getElementsByTagName(s)[0],
-      j = d.createElement(s),
-      dl = l != 'dataLayer' ? '&l=' + l : ''
-    j.async = true
-    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
-    f.parentNode.insertBefore(j, f)
-  })(window, document, 'script', 'dataLayer', '%STORYBOOK_GTM_ID%')
-</script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var noScript = document.createElement('noscript')
-    var iframe = document.createElement('iframe')
-    iframe.src =
-      'https://www.googletagmanager.com/ns.html?id=%STORYBOOK_GTM_ID%'
-    iframe.height = '0'
-    iframe.width = '0'
-    iframe.style.cssText = 'display: none; visibility: hidden'
-    noScript.appendChild(iframe)
-    document.body.appendChild(noScript)
-  })
+  gtag('config', '%STORYBOOK_GTAG_ID%');
 </script>
