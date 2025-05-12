@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 600 484">
+  <defs>
+    <linearGradient id="linear-gradient" x1="-138.4" y1="-67" x2="-134.8" y2="-67" gradientTransform="translate(13780.6 4311.1) scale(97.9 62.6)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2a3b8f"/>
+      <stop offset="1" stop-color="#29abe2"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient1" x1="-134.8" y1="-64.1" x2="-138.4" y2="-64.1" gradientTransform="translate(13794.6 4364.6) scale(98 62.4)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b4d44e"/>
+      <stop offset="1" stop-color="#e7f716"/>
+    </linearGradient>
+  </defs>
+  <path fill="#166da5" d="M587.8,241.8l-62.6,105.3-87.6-106.8,87.3-104.1,62.9,105.5Z"/>
+  <path fill="#8fdb69" d="M518.5,365l-95.3-113.9-57.1,95.6,88.7,128.2,63.7-109.9Z"/>
+  <path fill="#166da5" d="M517.4,117.9l-94.2,114.3-57.1-95.6L454.8,8.3l62.6,109.6Z"/>
+  <path fill="url(#linear-gradient)" opacity=".9" d="M230.3,117.9h287.1L454.2,7.5h-160.7l-63.2,110.4ZM423.2,232.5h159.1l-57.4-96.3-158.8.3"/>
+  <path fill="url(#linear-gradient1)" opacity=".9" d="M518.5,365.4H229.9l63.2,109.6h161.7l63.7-109.6ZM423.2,250.8h159.3l-57.2,96.4h-159.5"/>
+  <path fill="#010101" d="M293.2,475l-135.1-233.5L294.9,7.9h-148L12.2,241.5l134.8,233.5h146.2Z"/>
+</svg>
