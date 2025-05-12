@@ -18,6 +18,7 @@ jobs:
       issues: write # to be able to comment on released issues
       pull-requests: write # to be able to comment on released pull requests
       id-token: write # to enable use of OIDC for npm provenance
+      attestations: write
     needs: [checks]
     steps:
       - name: Checkout
@@ -26,6 +27,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
+          registry-url: 'https://registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}'
           node-version-file: '.nvmrc'
 
       - name: Install Dependencies
@@ -37,9 +39,14 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
         run: npx semantic-release
 
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: '${{ github.workspace }}/src'
+
   update_docs:
+    needs: [release]
     uses: ./.github/workflows/deploy.yaml
     secrets: inherit
