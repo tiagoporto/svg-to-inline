@@ -27,7 +27,6 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v4
         with:
-          registry-url: 'https://registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}'
           node-version-file: '.nvmrc'
 
       - name: Install Dependencies
@@ -36,9 +35,13 @@ jobs:
       # - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
       #   run: npm audit signatures
 
+      - name: Configure .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> .npmrc
+
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
         run: npx semantic-release
 
