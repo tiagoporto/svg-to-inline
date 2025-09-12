@@ -43,6 +43,4 @@ npm i svg-to-inline
 
 ## License 📄
 
-This project is licensed under the [MIT License](https://github.com/tiagoporto/svg-to-inline/blob/main/LICENSE).
-
-<!-- ![Open Source Love](https://badges.frapsoft.com/os/v3/open-source.svg) -->
+Svg To Inline © 2019 by Tiago Porto is licensed under [MIT License](https://github.com/tiagoporto/svg-to-inline/blob/main/LICENSE).
