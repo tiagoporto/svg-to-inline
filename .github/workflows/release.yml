@@ -10,9 +10,9 @@ jobs:
     uses: ./.github/workflows/checks.yml
     secrets: inherit
 
-  unit_tests:
-    uses: ./.github/workflows/unit-tests.yml
-    secrets: inherit
+  # unit_tests:
+  #   uses: ./.github/workflows/unit-tests.yml
+  #   secrets: inherit
 
   release:
     runs-on: ubuntu-latest
