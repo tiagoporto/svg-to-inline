@@ -1,0 +1,5 @@
+{
+  "plugins": [
+    "@tiagoporto/remark-config/mdx"
+  ]
+}
