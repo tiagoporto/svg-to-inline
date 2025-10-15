@@ -40,7 +40,7 @@
     "custom-elements.json"
   ],
   "scripts": {
-    "postinstall": "$CI = true || (dependabot-config && editor-config)",
+    "postinstall": "$CI = true || editor-config",
     "prepack": "npm run build",
     "prepare": "husky",
     "analyze": "custom-elements-manifest analyze --litelement --exclude demo dist storybook-static \"**/*.(story|stories).*\"",
@@ -78,7 +78,6 @@
     "@storybook/test": "^8.4.2",
     "@storybook/web-components": "^8.4.2",
     "@storybook/web-components-vite": "^8.4.2",
-    "@tiagoporto/dependabot-config": "^2.0.0",
     "@tiagoporto/editor-config": "^2.0.0",
     "@tiagoporto/prettier-config": "^2.1.0",
     "@tiagoporto/remark-config": "^1.11.0",
