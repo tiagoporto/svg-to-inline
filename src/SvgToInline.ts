@@ -110,10 +110,8 @@ export class SvgToInline extends LitElement {
   }
 
   render() {
-    return html`${
-      this._svgDOM
-        ? convertStringToNode(addClassNames(this._svgDOM, this.className))
-        : this._statusElement
-    }`
+    return html`${this._svgDOM
+      ? convertStringToNode(addClassNames(this._svgDOM, this.className))
+      : this._statusElement}`
   }
 }
