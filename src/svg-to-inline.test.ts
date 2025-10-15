@@ -1,6 +1,6 @@
 import { html } from 'lit'
 import { fixture, expect } from '@open-wc/testing'
-import type { SvgToInline } from './'
+import type { SvgToInline } from '.'
 import './svg-to-inline.js'
 
 describe('SvgToInline', () => {
