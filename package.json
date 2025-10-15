@@ -76,7 +76,7 @@
     "@storybook/addon-docs": "^8.4.2",
     "@storybook/blocks": "^8.4.2",
     "@storybook/test": "^8.4.2",
-    "@storybook/web-components": "^8.4.2",
+    "@storybook/web-components": "^9.1.10",
     "@storybook/web-components-vite": "^8.4.2",
     "@tiagoporto/dependabot-config": "^2.0.0",
     "@tiagoporto/editor-config": "^2.0.0",
