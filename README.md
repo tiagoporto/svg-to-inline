@@ -11,7 +11,7 @@
 ![Website](https://img.shields.io/website?logo=githubpages&style=flat-square&url=https://tiagoporto.github.io/svg-to-inline)
 [![Checks GA Workflow Status](https://img.shields.io/github/actions/workflow/status/tiagoporto/svg-to-inline/checks.yml?label=checks&logo=githubactions&logoColor=white&style=flat-square)](https://github.com/tiagoporto/svg-to-inline/actions/workflows/checks.yml)
 [![Tests GA Workflow Status](https://img.shields.io/github/actions/workflow/status/tiagoporto/svg-to-inline/unit-tests.yml?label=tests&logo=githubactions&logoColor=white&style=flat-square)](https://github.com/tiagoporto/svg-to-inline/actions/workflows/unit-tests.yml)
-[![Coverage Status](https://img.shields.io/coverallsCoverage/github/tiagoporto/svg-to-inline.svg?logo=coveralls&style=flat-square)](https://coveralls.io/github/tiagoporto/svg-to-inline)
+[![Coverage](https://img.shields.io/codecov/c/github/tiagoporto/svg-to-inline/main?style=flat-square)](https://app.codecov.io/gh/tiagoporto/svg-to-inline/tree/main)
 
 ## Demo 🚀
 
